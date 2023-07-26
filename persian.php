@@ -144,17 +144,4 @@ function persian_date_header()
 function persian_date_footer()
 {
 	echo '<script src="'. module_dir_url('persian', 'assets/js/persian-datepicker.min.js') .'"></script>';
-
-	echo "<script>document.addEventListener('DOMContentLoaded', function()
-	{
-		$('.datepicker').addClass('persian-datepicker');
-		$('.datepicker').removeClass('datepicker');
-	
-		$('.datetimepicker').addClass('persian-datepicker');
-		$('.datetimepicker').removeClass('datetimepicker');
-	
-		$('.persian-datepicker').attr('data-jdp', '');
-
-		jalaliDatepicker.startWatch({})
-	});</script>";
 }
