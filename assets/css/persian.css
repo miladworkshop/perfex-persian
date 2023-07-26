@@ -14,6 +14,76 @@
 	url('../fonts/woff2/IRANSansX-Regular.woff2') format('woff2'); 
 }
 
+#phonenumber,
+.persian-datepicker,
+input[id="email"],
+input[type="number"],
+input[type="password"],
+textarea[name="theme_style_custom_clients_and_admin_area"],
+textarea[name="theme_style_custom_clients_area"],
+textarea[name="theme_style_custom_admin_area"]
+{
+	text-align:left !important;
+	direction:ltr !important;
+}
+
+.tw-divide-solid>:not([hidden])~:not([hidden]){border-style:none; }
+.tw-divide-solid>:not([hidden])~:not([hidden]){border-right: 1px solid #bbb; margin-right:8px; padding-right:12px;}
+
+small {
+	font-size:11px;
+}
+
+label {
+	padding-bottom:8px;
+}
+
+.persianlogo {
+	padding:12px;
+	background:#F9F9F9;
+}
+
+.persianlogo img {
+	width:100%;
+}
+
+.persian-timeline {
+	list-style: none;
+}
+.persian-timeline > li {
+	margin-bottom: 60px;
+}
+
+@media ( min-width : 640px )
+{
+	.persian-timeline > li {
+		overflow: hidden;
+		margin: 0;
+		position: relative;
+	}
+	.persian-timeline-date {
+		width: 85px;
+		float: right;
+		margin-top: 21px;
+	}
+	.persian-timeline-content {
+		width: 75%;
+		float: right;
+		border-right: 3px #e5e5d1 solid;
+		padding-right: 30px;
+	}
+	.persian-timeline-content:before {
+		content: '';
+		width: 12px;
+		height: 12px;
+		background: #6fc173;
+		position: absolute;
+		right: 80px;
+		top: 24px;
+		border-radius: 100%;
+	}
+}
+
 html, body, a, p {
     font-family: persianSans !important;
 }
@@ -476,22 +546,17 @@ html, body, a, p {
 .w-50{
 	width: 50% !important;
 }
+
 #timer-select-task .inner.open{
 	overflow-y: initial !important;
 }
 
-#phonenumber,
-.persian-datepicker,
-input[id="email"],
-input[type="number"],
-input[type="password"],
-textarea[name="theme_style_custom_clients_and_admin_area"],
-textarea[name="theme_style_custom_clients_area"],
-textarea[name="theme_style_custom_admin_area"]
-{
-	text-align:left !important;
-	direction:ltr !important;
+.persian-more {
+	padding:8px;
 }
 
-.tw-divide-solid>:not([hidden])~:not([hidden]){border-style:none; }
-.tw-divide-solid>:not([hidden])~:not([hidden]){border-right: 1px solid #bbb; margin-right:8px; padding-right:12px;}
+.persian-more img {
+	width: 100%;
+	height:auto;
+	border-radius:8px;
+}

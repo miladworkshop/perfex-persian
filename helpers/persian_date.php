@@ -1,7 +1,7 @@
 <?php /* In the name of Allah = بسم اللّه الرّحمن الرّحیم */
 
 /**
- * @فارسی : توابع زمان و تاریخ هجری شمسی (جلالی) در پی اچ پی
+ * @پارسی : توابع زمان و تاریخ هجری شمسی (جلالی) در پی اچ پی
  * @name: Hijri_Shamsi,Solar(Jalali) Date and Time Functions
  * @Author : Reza Gholampanahi & WebSite : http://jdf.scr.ir
  * @License: GNU/LGPL _ Open Source & Free : [all functions]
@@ -9,7 +9,7 @@
  */
 
 /*	F	*/
-function jdate($format, $timestamp = '', $none = '', $time_zone = 'Asia/Tehran', $tr_num = 'fa') {
+function jdate($format, $timestamp = '', $none = '', $time_zone = 'Asia/Tehran', $tr_num = 'en') {
 
   $T_sec = 0;/* <= رفع خطاي زمان سرور ، با اعداد '+' و '-' بر حسب ثانيه */
 
