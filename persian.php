@@ -34,6 +34,13 @@ if (get_option('persian_date') == 'Y')
 	hooks()->add_filter('after_format_date', 'persian_after_format_date');
 	hooks()->add_filter('after_format_datetime', 'persian_after_format_datetime');
 	hooks()->add_filter('before_sql_date_format', 'persian_before_sql_date_format');
+	
+	hooks()->add_action('app_admin_head', 'persian_date_header');
+	hooks()->add_action('app_admin_authentication_head', 'persian_date_header');
+	hooks()->add_action('app_customers_head', 'persian_date_header');
+	
+	hooks()->add_action('app_admin_footer', 'persian_date_footer');
+	hooks()->add_action('app_customers_footer', 'persian_date_footer');
 }
 
 if (get_option('persian_verify_email') == 'Y')
@@ -122,12 +129,32 @@ function persian_after_client_register($clientid)
 function persian_theme_style_persian_header()
 {
 	echo '<link href="'. module_dir_url('persian', 'assets/css/persian.css') .'"  rel="stylesheet" type="text/css" />';
-	echo '<link href="'. module_dir_url('persian', 'assets/css/persian-datepicker.min.css') .'"  rel="stylesheet" type="text/css" />';
 }
 
 function persian_theme_style_persian_footer()
 {
 	echo '<script src="'. module_dir_url('persian', 'assets/js/persian.js') .'"></script>';
-	echo '<script src="'. module_dir_url('persian', 'assets/js/persian-date.min.js') .'"></script>';
+}
+
+function persian_date_header()
+{
+	echo '<link href="'. module_dir_url('persian', 'assets/css/persian-datepicker.min.css') .'"  rel="stylesheet" type="text/css" />';
+}
+
+function persian_date_footer()
+{
 	echo '<script src="'. module_dir_url('persian', 'assets/js/persian-datepicker.min.js') .'"></script>';
+
+	echo "<script>document.addEventListener('DOMContentLoaded', function()
+	{
+		$('.datepicker').addClass('persian-datepicker');
+		$('.datepicker').removeClass('datepicker');
+	
+		$('.datetimepicker').addClass('persian-datepicker');
+		$('.datetimepicker').removeClass('datetimepicker');
+	
+		$('.persian-datepicker').attr('data-jdp', '');
+
+		jalaliDatepicker.startWatch({})
+	});</script>";
 }
