@@ -56,9 +56,7 @@ function persian_init_menu_items()
     if (is_admin())
 	{
         $CI = &get_instance();
-        /**
-         * If the logged in user is administrator, add custom menu in Setup
-         */
+
         $CI->app_menu->add_setup_menu_item('persian', [
             'href'     => admin_url('persian'),
             'name'     => "تنظیمات ماژول توسعه پارسی",
@@ -120,10 +118,7 @@ function persian_after_client_register($clientid)
 
 	$CI->db->where('id', $clientid);
 
-	$CI->db->update(db_prefix() . 'contacts',
-	[
-		'email_verified_at' => date("Y-m-d H:i:s"),
-	]);
+	$CI->db->update(db_prefix() . 'contacts', ['email_verified_at' => date("Y-m-d H:i:s")]);
 }
 
 function persian_theme_style_persian_header()
