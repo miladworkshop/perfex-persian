@@ -87,3 +87,52 @@ function persian_form_select($id, $title, $dir, $option)
 
 	return $out;
 }
+
+function persian_valid_mobile($mobile)
+{
+	if (isset($mobile) && !empty($mobile))
+	{
+		$mobile = (substr($mobile, 0, 3) === "+98") 	? substr($mobile, 3) : $mobile;
+		$mobile = (substr($mobile, 0, 4) === "0098") 	? substr($mobile, 4) : $mobile;
+		$mobile = str_replace(" ", "", $mobile);
+		$mobile = str_replace("-", "", $mobile);
+		$mobile = str_replace("/", "", $mobile);
+		@$mobile = $mobile * 1;
+
+		if (is_numeric($mobile))
+		{
+			if ($mobile > 9000000000)
+			{
+				$mobile = "0{$mobile}";
+
+				if(preg_match("/^09[0-9]{9}$/", $mobile))
+				{
+				   return $mobile;
+				}else{
+				   return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	} else {
+		return false;
+	}
+}
+
+function persian_send_sms($mobile, $message)
+{
+	$CI = &get_instance();
+
+	if ($CI->app_sms->get_active_gateway() !== false)
+	{
+		$gateway 	= $CI->app_sms->get_active_gateway();
+		$className 	= 'sms_' . $gateway['id'];
+
+		return $CI->{$className}->send($mobile, $message);
+	} else {
+		return false;
+	}
+}

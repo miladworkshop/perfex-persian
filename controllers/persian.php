@@ -9,7 +9,7 @@ class persian extends AdminController
         parent::__construct();
 
         if (!is_admin()) {
-            access_denied('Persian');
+            access_denied('persian');
         }
     }
 

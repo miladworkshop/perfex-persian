@@ -51,6 +51,37 @@ if (get_option('persian_verify_email') == 'Y')
 hooks()->add_filter('module_persian_action_links', 'module_persian_action_links');
 hooks()->add_action('admin_init', 'persian_init_menu_items');
 
+hooks()->add_action('clients_authentication_constructor', 'persian_login_register');
+
+if (is_admin())
+{
+	$CI = &get_instance();
+
+	if (!$CI->db->table_exists(db_prefix().'persian_otp'))
+	{
+		$CI->db->query('CREATE TABLE `'.db_prefix().'persian_otp` (
+		`id` INT NOT NULL AUTO_INCREMENT ,
+		`client` INT(11) NOT NULL DEFAULT "0",
+		`contact` INT(11) NOT NULL DEFAULT "0",
+		`mobile` VARCHAR(16) NOT NULL ,
+		`code` VARCHAR(16) NOT NULL ,
+		`key` VARCHAR(32) NOT NULL ,
+		`time` INT(16) NOT NULL DEFAULT "0",
+		`ip` VARCHAR(16) NOT NULL ,
+		`broken` INT(1) NOT NULL DEFAULT "0",
+		PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET='. $CI->db->char_set .';');
+	}
+}
+
+function persian_login_register($data)
+{	
+	if ($data->app_sms->get_active_gateway() !== false)
+	{
+		require_once("auth/auth.php");
+		exit;
+	}
+}
+
 function persian_init_menu_items()
 {
     if (is_admin())
