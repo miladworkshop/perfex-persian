@@ -562,6 +562,79 @@ ul.tagit li.tagit-choice .tagit-close{
 }
 
 .transaction-html-info-col-right {
-	float:left;
+	float:right;
 	text-align:right;
+}
+
+.transaction-html-info-col-left {
+	float:left;
+	text-align:left;
+}
+
+.customers-nav-item-profile {
+	float:right !important;
+}
+
+#subtotal {
+	text-align:right;
+}
+
+.viewinvoice .table tbody td:first-child {
+	text-align:right;
+}
+
+.viewinvoice .table .subtotal {
+	text-align:left;
+}
+
+.invoice-html-offline-payments {
+	padding:16px;
+	background:#F7F7F7;
+	border-radius:4px;
+	border: 1px solid #CCCCCC;
+	text-align:right;
+	direction:rtl;
+	line-height:200%;
+}
+
+.invoice-html-offline-payments > p:first-child {
+	padding:8px;
+	border-radius:4px;
+	background:#E8E8E8;
+}
+
+.invoice-items-preview thead tr th {
+	color:#FFFFFF !important;
+	text-align:center !important;
+	background:#415164 !important;
+}
+
+.invoice-items-preview thead tr th[align="right"] {
+	text-align:center !important;
+}
+
+.invoice-items-preview tbody tr td[align="right"] {
+	text-align:center !important;
+}
+
+.customers-top-submenu-files {
+	border-radius:4px;
+	padding:10px 5px 5px 10px;
+	border: 1px solid #CCCCCC;
+}
+
+.customers-top-submenu-files span {
+	font-size:14px;
+	padding-right:5px;
+}
+
+.customers-top-submenu-calendar {
+	border-radius:4px;
+	padding:10px 5px 5px 10px;
+	border: 1px solid #CCCCCC;
+}
+
+.customers-top-submenu-calendar span {
+	font-size:14px;
+	padding-right:5px;
 }

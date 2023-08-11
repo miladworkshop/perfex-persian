@@ -92,12 +92,13 @@ function persian_valid_mobile($mobile)
 {
 	if (isset($mobile) && !empty($mobile))
 	{
-		$mobile = (substr($mobile, 0, 3) === "+98") 	? substr($mobile, 3) : $mobile;
-		$mobile = (substr($mobile, 0, 4) === "0098") 	? substr($mobile, 4) : $mobile;
+		$mobile = (substr($mobile, 0, 2) == "98") 	? substr($mobile, 2) : $mobile;
+		$mobile = (substr($mobile, 0, 3) == "+98") 	? substr($mobile, 3) : $mobile;
+		$mobile = (substr($mobile, 0, 4) == "0098") ? substr($mobile, 4) : $mobile;
 		$mobile = str_replace(" ", "", $mobile);
 		$mobile = str_replace("-", "", $mobile);
 		$mobile = str_replace("/", "", $mobile);
-		@$mobile = $mobile * 1;
+		@$mobile = (is_numeric($mobile)) ? $mobile * 1 : false;
 
 		if (is_numeric($mobile))
 		{

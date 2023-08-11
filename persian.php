@@ -6,8 +6,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	Description: بهینه سازی زبان پارسی و شمسی سازی سیستم
 	Author: میلاد مالدار
 	Author URI: https://miladworkshop.ir
-	Version: 1.0.0
-	Requires at least: 2.3.*
+	Version: 1.0.1
+	Requires at least: 3.0.*
 */
 
 $CI = &get_instance();
@@ -48,10 +48,14 @@ if (get_option('persian_verify_email') == 'Y')
 	hooks()->add_action('after_client_register', 'persian_after_client_register');
 }
 
+if (get_option('persian_login') == 'Y')
+{
+	hooks()->add_action('clients_authentication_constructor', 'persian_login_register');
+}
+
 hooks()->add_filter('module_persian_action_links', 'module_persian_action_links');
 hooks()->add_action('admin_init', 'persian_init_menu_items');
 
-hooks()->add_action('clients_authentication_constructor', 'persian_login_register');
 
 if (is_admin())
 {
@@ -89,6 +93,7 @@ function persian_init_menu_items()
         $CI = &get_instance();
 
         $CI->app_menu->add_setup_menu_item('persian', [
+			'slug'     => 'persian',
             'href'     => admin_url('persian'),
             'name'     => "تنظیمات ماژول توسعه پارسی",
             'position' => 9999,

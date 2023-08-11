@@ -19,6 +19,11 @@ if ($key != false)
 					$data->db->where('key', $key);
 					$data->db->update(db_prefix() .'persian_otp', array('broken' => '1'));
 
+					$data->db->where('id', $otp->contact);
+					$data->db->update(db_prefix() .'contacts', array('last_ip' => $data->input->ip_address(), 'last_login' => date('Y-m-d H:i:s')));
+
+					log_activity('User Successfully Logged In [User Id: ' . $otp->client . ', Mobile: '. $otp->mobile .', Is Staff Member: No, IP: ' . $data->input->ip_address() . ']');
+
 					$user_data = [
 						'client_user_id'   => $otp->client,
 						'contact_user_id'  => $otp->contact,
@@ -45,8 +50,6 @@ if ($key != false)
 	redirect(base_url("authentication/login"));
 	exit;
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,6 +81,7 @@ if ($key != false)
 					</div>
 					<div class="auth-submit d-grid gap-2">
 						<button type="submit" class="btn btn-primary btn-lg">ورود</button>
+						<a href="<?php echo base_url('authentication/login'); ?>">بازگشت به صفحه ورود</a>
 					</div>
 				<?php echo form_close(); ?>
 			</div>

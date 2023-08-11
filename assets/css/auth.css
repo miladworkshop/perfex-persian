@@ -430,3 +430,14 @@ input[type=number] {
     background: #40475c;
     color: #fff
 }
+
+.auth-submit {
+	text-align:center;
+}
+
+.auth-submit a {
+	margin-top:16px;
+	text-decoration-line: underline;
+	text-decoration-style: dashed;
+	text-underline-offset: 8px;
+}

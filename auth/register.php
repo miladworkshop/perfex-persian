@@ -142,6 +142,7 @@ if (isset($mobile) && $mobile != false)
 
 						<div class="auth-submit d-grid gap-2">
 							<button type="submit" class="btn btn-primary btn-lg">ثبت نام</button>
+							<a href="<?php echo base_url('authentication/login'); ?>">ورود با کد یکبار مصرف</a>
 						</div>
 					</div>
 				<?php echo form_close(); ?>

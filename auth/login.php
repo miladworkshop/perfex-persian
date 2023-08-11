@@ -1,7 +1,21 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+$rest 					= false;
+$rest_data 				= array();
+$rest_data['status'] 	= 'error';
+$rest_data['message'] 	= 'وضعیت نامشخص';
+
 $auth = $data->input->post("auth");
+$auth = (isset($auth) && !empty($auth) && $auth != "") ? $auth : false;
+
+if ($auth == false)
+{
+	$auth = $data->input->get("auth");
+	$auth = (isset($auth) && !empty($auth) && $auth != "") ? $auth : false;
+
+	$rest = ($auth == false) ? false : true;
+}
 
 if (isset($auth) && $auth != false)
 {
@@ -34,20 +48,59 @@ if (isset($auth) && $auth != false)
 			{
 				if (persian_send_sms($mobile, $otp_message) == true)
 				{
-					redirect(base_url("authentication/login/otp/{$otp_key}"));
-					exit;
+					if ($rest == true)
+					{
+						$rest_data['status'] 	= 'success';
+						$rest_data['message'] 	= base_url("authentication/login/otp/{$otp_key}");
+					} else {
+						redirect(base_url("authentication/login/otp/{$otp_key}"));
+						exit;
+					}
 				} else {
-					$auth_alert = "<div class='alert alert-danger'>خطا در ارسال کد تایید</div>";
+					if ($rest == true)
+					{
+						$rest_data['status'] 	= 'error';
+						$rest_data['message'] 	= "خطا در ارسال کد تایید";
+					} else {
+						$auth_alert = "خطا در ارسال کد تایید";
+					}
 				}
 			} else {
-				$auth_alert = "<div class='alert alert-danger'>خطا در ثبت اطلاعات</div>";
+				if ($rest == true)
+				{
+					$rest_data['status'] 	= 'error';
+					$rest_data['message'] 	= "خطا در ثبت اطلاعات";
+				} else {
+					$auth_alert = "خطا در ثبت اطلاعات";
+				}
 			}
 		} else {
-			redirect(base_url("authentication/register"));
-			exit;
+			if ($rest == true)
+			{
+				$rest_data['status'] 	= 'success';
+				$rest_data['message'] 	= base_url("authentication/register");
+			} else {
+				redirect(base_url("authentication/register"));
+				exit;
+			}
 		}
 	} else {
-		$auth_alert = "<div class='alert alert-danger'>شماره وارد شده معتبر نیست</div>";
+		if ($rest == true)
+		{
+			$rest_data['status'] 	= 'error';
+			$rest_data['message'] 	= "شماره وارد شده معتبر نیست";
+		} else {
+			$auth_alert = "شماره وارد شده معتبر نیست";
+		}
+	}
+
+	if (isset($rest) && $rest == true)
+	{
+		header('Content-Type: application/json');
+		echo json_encode($rest_data);
+		exit;
+	} else {
+		$auth_alert = (isset($auth_alert) && !empty($auth_alert) && $auth_alert != "") ? "<div class='alert alert-danger'>{$auth_alert}</div>" : "";
 	}
 }
 ?>
@@ -67,7 +120,7 @@ if (isset($auth) && $auth != false)
 			<div class="app-auth-background"></div>
 			<div class="app-auth-container">
 				<div class="logo">
-					<a href="<?php echo base_url('authentication/login'); ?>">ورود / ثبت نام</a>
+					<a href="<?php echo base_url('authentication/login'); ?>">ورود</a>
 				</div>
 				<div class="divider"></div>
 
@@ -81,6 +134,7 @@ if (isset($auth) && $auth != false)
 					</div>
 					<div class="auth-submit d-grid gap-2">
 						<button type="submit" class="btn btn-primary btn-lg">ورود</button>
+						<a href="<?php echo base_url('authentication/register'); ?>">ثبت نام و ایجاد اکانت جدید</a>
 					</div>
 				<?php echo form_close(); ?>
 			</div>

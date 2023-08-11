@@ -25,7 +25,7 @@ $lang['cant_delete_default'] 					= '%s پیشفرض حذف نمی شود.';
 $lang['invoice_status_paid'] 					= 'پرداخت شده';
 $lang['invoice_status_unpaid'] 					= 'پرداخت نشده';
 $lang['invoice_status_overdue'] 				= 'معوقه';
-$lang['invoice_status_not_paid_completely'] 	= 'قسمتی پرداخت شده';
+$lang['invoice_status_not_paid_completely'] 	= 'پرداخت تکمیل نشده';
 $lang['invoice_pdf_heading'] 					= 'صورتحساب';
 $lang['invoice_table_item_heading'] 			= 'کالا یا خدمت';
 $lang['invoice_table_quantity_heading'] 		= 'تعداد';
@@ -35,7 +35,7 @@ $lang['invoice_table_amount_heading'] 			= 'مبلغ';
 $lang['invoice_subtotal'] 						= 'جمع جزئی';
 $lang['invoice_adjustment'] 					= 'تعدیل';
 $lang['invoice_total'] 							= 'جمع کل';
-$lang['invoice_bill_to'] 						= 'صورت حساب برای';
+$lang['invoice_bill_to'] 						= 'صورت حساب';
 $lang['invoice_data_date'] 						= 'تاریخ فاکتور:';
 $lang['invoice_data_duedate'] 					= 'تاریخ سررسید:';
 $lang['invoice_received_payments'] 				= 'تراکنش ها';
@@ -73,9 +73,9 @@ $lang['client_city'] = 'شهر';
 $lang['client_postal_code'] = 'کد پستی';
 $lang['client_state'] = 'استان';
 $lang['client_password'] = 'رمز عبور';
-$lang['client_password_change_populate_note'] = 'توجه: اگر این فیلد را پر کنید، رمز عبور برای این مخاطب تغییر خواهد کرد.';
+$lang['client_password_change_populate_note'] = 'توجه: اگر این فیلد را پر کنید، رمز عبور برای این کاربر تغییر خواهد کرد.';
 $lang['client_password_last_changed'] = 'آخرین تغییر رمز:';
-$lang['login_as_client'] = 'ورود به عنوان مشتری';
+$lang['login_as_client'] = 'ورود به پنل مشتری';
 $lang['client_invoices_tab'] = 'فاکتور ها';
 $lang['contracts_invoices_tab'] = 'قراردادها';
 $lang['contracts_tickets_tab'] = 'تیکت ها';
@@ -477,7 +477,7 @@ $lang['dt_paginate_first'] = 'اولین';
 $lang['dt_paginate_last'] = 'آخرین';
 $lang['dt_paginate_next'] = 'بعدی';
 $lang['dt_paginate_previous'] = 'قبلی';
-$lang['dt_search'] = 'جستجو:';
+$lang['dt_search'] = 'جستجو ...';
 $lang['dt_zero_records'] = 'هیچ رکورد منطبقی یافت نشد';
 $lang['dt_loading_records'] = 'بارگذاری...';
 $lang['dt_length_menu'] = 'نمایش _MENU_ مورد';
@@ -559,7 +559,7 @@ $lang['ticket_settings_updated_successfully_and_reassigned'] = 'تنظیمات �
 $lang['ticket_dt_subject'] = 'موضوع';
 $lang['ticket_dt_department'] = 'دپارتمان';
 $lang['ticket_dt_service'] = 'سرویس';
-$lang['ticket_dt_submitter'] = 'مخاطب';
+$lang['ticket_dt_submitter'] = 'کاربر';
 $lang['ticket_dt_status'] = 'وضعیت';
 $lang['ticket_dt_priority'] = 'اولویت';
 $lang['ticket_dt_last_reply'] = 'آخرین پاسخ';
@@ -730,7 +730,7 @@ $lang['nav_view_all_notifications'] = 'نمایش همه اعلانات';
 $lang['nav_notifications_tooltip'] = 'مشاهده اعلانات';
 
 # Footer
-$lang['clients_copyright'] = 'حق نشر %s';
+$lang['clients_copyright'] = 'کلیه حقوق مادی و معنوی نزد %s محفوط است.';
 
 # Contracts
 $lang['clients_contracts'] = 'قراردادها';
@@ -914,7 +914,7 @@ $lang['payment_total'] = 'مجموع: %s';
 
 # Invoice
 $lang['invoice_html_online_payment'] = 'پرداخت آنلاین';
-$lang['invoice_html_online_payment_button_text'] = 'الان پرداخت کنید';
+$lang['invoice_html_online_payment_button_text'] = 'پرداخت';
 $lang['invoice_html_payment_modes_not_selected'] = 'لطفا روش پرداخت را انتخاب کنید';
 $lang['invoice_html_amount_blank'] = 'مبلغ کل نمی تواند خالی یا صفر باشد';
 $lang['invoice_html_offline_payment'] = 'پرداخت آفلاین';
@@ -1148,10 +1148,10 @@ $lang['invoice_item_long_description'] = 'توضیحات طولانی';
 # Customers
 $lang['clients_list_phone'] = 'تلفن';
 $lang['client_expenses_tab'] = 'هزینه ها';
-$lang['customers_summary'] = 'خلاصه مشتری ها';
-$lang['customers_summary_active'] = 'مخاطبان فعال';
-$lang['customers_summary_inactive'] = 'مخاطبان غیرفعال';
-$lang['customers_summary_logged_in_today'] = 'مخاطبان وارد شده در امروز';
+$lang['customers_summary'] = 'گزارش مشتریان';
+$lang['customers_summary_active'] = 'کاربران فعال';
+$lang['customers_summary_inactive'] = 'کاربران غیرفعال';
+$lang['customers_summary_logged_in_today'] = 'کاربر امروز وارد سیستم شده‌اند';
 
 # Authentication
 $lang['admin_auth_forgot_password_email'] = 'آدرس ایمیل';
@@ -1389,9 +1389,9 @@ $lang['client_send_set_password_email'] = 'ارسال ایمیل تنظیم رم
 $lang['customer_billing_same_as_profile'] = 'مشابه اطلاعات مشتری';
 $lang['customer_billing_copy'] = 'کپی کردن آدرس صورت حساب';
 $lang['customer_map'] = 'نقشه';
-$lang['set_password_email_sent_to_client'] = 'ایمیل برای تنظیم رمز عبور با موفقیت برای مخاطب ارسال شد.';
-$lang['set_password_email_sent_to_client_and_profile_updated'] = ' پروفایل به روز رسانی شد و ایمیل تنظیم رمزعبور برای مخاطب با موفقیت ارسال شد.';
-$lang['customer_attachments'] = 'فایل ها';
+$lang['set_password_email_sent_to_client'] = 'ایمیل برای تنظیم رمز عبور با موفقیت برای کاربر ارسال شد.';
+$lang['set_password_email_sent_to_client_and_profile_updated'] = ' پروفایل به روز رسانی شد و ایمیل تنظیم رمزعبور برای کاربر با موفقیت ارسال شد.';
+$lang['customer_attachments'] = 'فایل و اسناد';
 $lang['customer_longitude'] = 'طول جغرافیای(نقشه گوگل)';
 $lang['customer_latitude'] = 'عرض جغرافیایی (نقشه گوگل)';
 
@@ -1549,7 +1549,7 @@ $lang['add_checklist_item'] = 'مورد چک لیست';
 $lang['task_checklist_items'] = 'موارد چک لیست';
 
 # Import
-$lang['default_pass_clients_import'] = 'رمزعبور پیش فرض برای تمام مخاطبین';
+$lang['default_pass_clients_import'] = 'رمزعبور پیش فرض برای تمام کاربرین';
 $lang['simulate_import'] = 'شبیه سازی درون ریزی';
 $lang['import_upload_failed'] = 'آپلود ناموفق بود';
 $lang['import_total_imported'] = 'تعداد کل درون ریزی شده: %s';
@@ -2015,7 +2015,7 @@ $lang['timer_top_started'] = 'شروع شده در %s';
 
 # Projects
 $lang['cant_change_billing_type_billed_tasks_found'] = 'شما نمی توانید نوع صورت حساب را تغییر دهید. وظایف صورت حساب شده ای برای این پروژه وجود دارند.';
-$lang['project_customer_permission_warning'] = 'سیستم نشان می دهد که مخاطب اصلی به پروژه‌ها دسترسی ندارد. مخاطب اصلی نمی تواند پروژه را ببیند. اجازه دسترسی را می توانید در پروفایل مخاطب تنظیم کنید';
+$lang['project_customer_permission_warning'] = 'سیستم نشان می دهد که کاربر اصلی به پروژه‌ها دسترسی ندارد. کاربر اصلی نمی تواند پروژه را ببیند. اجازه دسترسی را می توانید در پروفایل کاربر تنظیم کنید';
 $lang['project_invoice_timesheet_start_time'] = 'زمان شروع: %s';
 $lang['project_invoice_timesheet_end_time'] = 'زمان پایان: %s';
 $lang['project_invoice_timesheet_total_logged_time'] = 'زمان قابل پرداخت: %s';
@@ -2046,7 +2046,7 @@ $lang['projects_lowercase'] = 'پروژه‌ها';
 $lang['project_settings'] = 'تنظیمات پروژه';
 $lang['project_invoiced_successfully'] = 'پروژه با موفقیت فاکتور شد';
 $lang['new_project'] = 'پروژه جدید';
-$lang['project_files'] = 'فایل ها';
+$lang['project_files'] = 'فایل و اسناد';
 $lang['project_activity'] = 'فعالیت';
 $lang['project_name'] = 'نام پروژه';
 $lang['project_description'] = 'توضیحات';
@@ -2266,11 +2266,11 @@ $lang['not_new_ticket_created'] = 'تیکت جدیدی در دپارتمان ش�
 $lang['receive_notification_on_new_ticket'] = 'اعلانی را هنگام باز شدن تیکت جدید دریافت کن';
 $lang['receive_notification_on_new_ticket_help'] = 'تمام کارکنان عضوی که به دپارتمان تیکت تعلق دارند اعلان مربوط به باز شدن تیکت جدید را دریافت می کنند.';
 $lang['event_updated'] = 'رویداد با موفقیت به روزرسانی شد';
-$lang['customer_contacts'] = 'مخاطبین';
-$lang['new_contact'] = 'مخاطب جدید';
-$lang['contact'] = 'مخاطب';
-$lang['contact_lowercase'] = 'مخاطب';
-$lang['contact_primary'] = 'مخاطب اصلی';
+$lang['customer_contacts'] = 'کاربرین';
+$lang['new_contact'] = 'کاربر جدید';
+$lang['contact'] = 'کاربر';
+$lang['contact_lowercase'] = 'کاربر';
+$lang['contact_primary'] = 'کاربر اصلی';
 $lang['contact_position'] = 'سمت';
 $lang['contact_active'] = 'فعال';
 $lang['client_company_info'] = 'جزییات شرکت';
@@ -2282,11 +2282,11 @@ $lang['settings_pdf_table_heading_color'] = 'رنگ عنوان جدول کالا
 $lang['settings_pdf_table_heading_text_color'] = 'رنگ متن عنوان جدول کالا یا خدمت';
 $lang['settings_pdf_font_size'] = 'اندازه فونت پیش فرض';
 $lang['proposal_status_draft'] = 'پیش نویس';
-$lang['custom_field_contacts'] = 'مخاطبان';
+$lang['custom_field_contacts'] = 'کاربران';
 $lang['company_primary_email'] = 'ایمیل اصلی';
-$lang['client_register_contact_info'] = 'اطلاعات مخاطب اصلی';
+$lang['client_register_contact_info'] = 'اطلاعات کاربر اصلی';
 $lang['client_register_company_info'] = 'اطلاعات شرکت';
-$lang['contact_permissions_info'] = 'مطمئن شوید که اجازه های مناسب را برای این مخاطب تنظیم نمایید';
+$lang['contact_permissions_info'] = 'مطمئن شوید که اجازه های مناسب را برای این کاربر تنظیم نمایید';
 $lang['default_leads_kanban_sort'] = 'مرتب سازی پیش فرض کانبان مشتریان احتمالی';
 $lang['default_leads_kanban_sort_type'] = 'مرتب سازی';
 $lang['order_ascending'] = 'صعودی';
@@ -2295,13 +2295,13 @@ $lang['calendar_expand'] = 'تمام صفحه';
 $lang['proposal_reminders'] = 'یادآورها';
 $lang['proposal_set_reminder_title'] = 'تنظیم یادآور پروپوزال';
 $lang['settings_allowed_upload_file_types'] = 'فرمت های مجاز فایل';
-$lang['no_primary_contact'] = 'این مشتری مخاطب اصلی ندارد و باید برای ورود به عنوان مشتری یک مخاطب برای آن ایجاد کنید. ایجاد مخاطب اصلی برای همه مشتریان توصیه می شود.';
+$lang['no_primary_contact'] = 'این مشتری کاربر اصلی ندارد و باید برای ورود به عنوان مشتری یک کاربر برای آن ایجاد کنید. ایجاد کاربر اصلی برای همه مشتریان توصیه می شود.';
 $lang['leads_merge_customer'] = 'ادغام فیلدهای مشتری';
-$lang['leads_merge_contact'] = 'ادغام فیلدهای مخاطب';
-$lang['leads_merge_as_contact_field'] = 'ادغام به عنوان فیلد مخاطب';
+$lang['leads_merge_contact'] = 'ادغام فیلدهای کاربر';
+$lang['leads_merge_as_contact_field'] = 'ادغام به عنوان فیلد کاربر';
 $lang['lead_convert_to_client_phone'] = 'تلفن';
 $lang['invoice_status_report_all'] = 'همه';
-$lang['import_contact_field'] = 'فیلد مخاطب';
+$lang['import_contact_field'] = 'فیلد کاربر';
 $lang['file_uploaded_success'] = 'خطایی وجود ندارد. فایل با موفقیت بارگذاری شد';
 $lang['file_exceeds_max_filesize'] = 'فایل بارگذاری شده از اندازه upload_max_filesize که در php.ini مشخص شده بیشتر شده است.';
 $lang['file_exceeds_maxfile_size_in_form'] = 'فایل بارگذاری شده از اندازه MAX_FILE_SIZE که در فرم اچ تی ام ال مشخص شده تجاوز کرده است.';
@@ -2398,7 +2398,7 @@ $lang['report_expenses_base_currency_select_explanation'] = ' باید یک وا
 
 # Version 1.1.6
 $lang['project_activity_recorded_expense'] = 'هزینه ثبت شده';
-$lang['save_customer_and_add_contact'] = 'ذخیره و ایجاد مخاطب';
+$lang['save_customer_and_add_contact'] = 'ذخیره و ایجاد کاربر';
 $lang['tickets_chart_weekly_opening_stats'] = 'آمار هفتگی';
 $lang['related_knowledgebase_articles'] = 'مقاله های مرتبط';
 $lang['detailed_overview'] = 'بررسی اجمالی وظایف';
@@ -2413,11 +2413,11 @@ $lang['task_filter_detailed_all_months'] = 'همه ماه ها';
 $lang['kb_article_slug'] = 'نامک';
 
 # Version 1.1.7
-$lang['email_template_ticket_warning'] = 'اگر تیکت در صف ایمیل وارد شده باشد و مخاطب در crm موجود نباشد، فیلد جایگزین نمی شود';
+$lang['email_template_ticket_warning'] = 'اگر تیکت در صف ایمیل وارد شده باشد و کاربر در crm موجود نباشد، فیلد جایگزین نمی شود';
 $lang['auto_stop_tasks_timers_on_new_timer'] = 'وقتی یک تایمر شروع به کار می کند تمام تایمر های دیگر را متوقف کن.';
 $lang['notification_when_customer_pay_invoice'] = 'وقتی مشتری فاکتور را می پردازد هشدار دریافت کن.';
 $lang['not_invoice_payment_recorded'] = 'پرداخت جدید فاکتور - %s';
-$lang['email_template_contact_warning'] = 'اگر مخاطب در زمان انجام کار وارد نشده باشد، فیلدهای ادغام مخاطب جایگزین نمی شوند.';
+$lang['email_template_contact_warning'] = 'اگر کاربر در زمان انجام کار وارد نشده باشد، فیلدهای ادغام کاربر جایگزین نمی شوند.';
 $lang['change_role_permission_warning'] = 'تغییر اجازه نقش ها روی کارکنان عضوی که در این نقش ها از این اجازه ها استفاده می کنند اثر ندارد.';
 $lang['task_copied_successfully'] = 'وظیفه با موفقیت کپی شد';
 $lang['failed_to_copy_task'] = 'کپی وظیفه با مشکل مواجه شد';
@@ -2479,7 +2479,7 @@ $lang['you_can_not_upload_any_more_files'] = 'شما نمی توانید فای�
 $lang['custom_field_only_admin'] = 'قابلیت مشاهده محدود فقط برای مدیران';
 $lang['leads_default_source'] = 'منبع پیش فرض';
 $lang['clear_activity_log'] = 'پاک کردن گزارش';
-$lang['default_contact_permissions'] = 'اجازه های پیش فرض مخاطب';
+$lang['default_contact_permissions'] = 'اجازه های پیش فرض کاربر';
 $lang['invoice_activity_marked_as_cancelled'] = 'فاکتور را به عنوان لغو شده علامتگذاری کرد';
 $lang['invoice_activity_unmarked_as_cancelled'] = 'علامت لغو شده را از فاکتور برداشت';
 $lang['wait_text'] = 'لطفا منتظر بمانید ...';
@@ -2631,12 +2631,12 @@ $lang['finance_overview'] = 'بررسی اجمالی مالی';
 $lang['project_custom_fields'] = 'فیلدهای سفارشی';
 $lang['total_tickets_related_to_project'] = 'مجموع تیکت های مرتبط به پروژه';
 $lang['projects_total_invoices_created'] = 'مجموع فاکتورهای ایجاد شده';
-$lang['do_not_send_invoice_payment_email_template_contact'] = 'ایمیل پرداخت فاکتور را برای مخاطبین مشتری ارسال نکن.';
+$lang['do_not_send_invoice_payment_email_template_contact'] = 'ایمیل پرداخت فاکتور را برای کاربرین مشتری ارسال نکن.';
 $lang['no_preview_available_for_file'] = 'هیچ پیش نمایشی برای این فایل در دسترس نیست.';
 $lang['project_activity_deleted_file_discussion_comment'] = 'نظر گفتگوی فایل حذف شد';
 $lang['email_template_discussion_info'] = 'این قالب برای هردو ایمیل کامنتها گفتگوی پروژه استفاده شده است (گفتگوی فایل ها و گفتگوی معمولی)';
 $lang['format_a4_portrait_size'] = 'عمودی';
-$lang['only_show_contact_tickets'] = 'در پورتال مشتری فقط تیکت های مربوط به مخاطب وارد شده را نمایش بده (برای مخاطب اصلی اعمال نمی شود).';
+$lang['only_show_contact_tickets'] = 'در پورتال مشتری فقط تیکت های مربوط به کاربر وارد شده را نمایش بده (برای کاربر اصلی اعمال نمی شود).';
 $lang['cancel_overdue_reminders_invoice'] = 'جلوگیری از ارسال هشدارهای سررسید برای این فاکتور.';
 $lang['customer_shipping_address_notice'] = 'اگر نمی خواهید آدرس حمل و نقل را در فاکتور مشتری داشته باشید اطلاعات مربوط به آدرس را پر نکنید.';
 $lang['timesheets_overview'] = 'بررسی اجمالی برگه های ثبت ساعات کاری';
@@ -2671,7 +2671,7 @@ $lang['click_to_add_content'] = 'برای افزودن محتوا اینجا ک�
 $lang['related_to_project'] = 'این %s مرتبط است با %s : %s';
 $lang['back_to_lead'] = 'برگشت به مشتری احتمالی';
 $lang['add_task_timer_started_warning'] = 'تایمر آغاز شده برای این وظیفه باید متوقف شود تا بتوانید تایمرهای دیگر به صورت دستی آغاز کنید.';
-$lang['sending_email_contact_permissions_warning'] = 'انتخاب خودکار مخاطبین مشتری ناموفق بود. اطمینان حاصل کنید که مشتری دارای مخاطبین فعال بوده و مخاطبین مرتبط با اعلان های ایمیل برای %s فعال شده است.';
+$lang['sending_email_contact_permissions_warning'] = 'انتخاب خودکار کاربرین مشتری ناموفق بود. اطمینان حاصل کنید که مشتری دارای کاربرین فعال بوده و کاربرین مرتبط با اعلان های ایمیل برای %s فعال شده است.';
 
 # Version 1.2.6
 $lang['currently_supported_currencies'] = 'ارزهای پشتیبانی شده فعلی';
@@ -2727,7 +2727,7 @@ $lang['expenses_available_to_bill'] = 'هزینه های موجود برای ص�
 $lang['bulk_action_customers_groups_warning'] = 'اگر هیچ گروهی را انتخاب نکنید همه گروه های منتسب به این مشتریان انتخاب شده حذف می شوند.';
 $lang['customer_attachments_show_in_customers_area'] = 'نمایش به پورتال مشتریان';
 $lang['customer_attachments_show_notice'] = 'فقط فایلهای بارگذاری شده از پروفایل مشتری می توانند در پورتال مشتری پنهان/نمایش داده شوند.';
-$lang['customer_profile_files'] = 'فایل ها';
+$lang['customer_profile_files'] = 'فایل و اسناد';
 $lang['no_files_found'] = 'هیچ فایلی یافت نشد';
 $lang['custom_field_column'] = 'گرید (ستون بوت استرپ برابر است با 12) - بیشترین مقدار 12';
 $lang['task_status'] = 'وضعیت';
@@ -2847,9 +2847,9 @@ $lang['no_company_view_profile'] = 'شخص - مشاهده پروفایل';
 $lang['company_is_required'] = 'فیلد شرکت ضروری باشد؟';
 $lang['estimate_invoiced'] = 'فاکتور شده';
 $lang['file_date_uploaded'] = 'تاریخ آپلود';
-$lang['allow_contact_to_delete_files'] = 'به مخاطبین اجازه دهید فایل های خود را که در پورتال مشتریان آپلود شده اند حذف کنند';
+$lang['allow_contact_to_delete_files'] = 'به کاربرین اجازه دهید فایل های خود را که در پورتال مشتریان آپلود شده اند حذف کنند';
 $lang['file'] = 'فایل';
-$lang['customer_contact_person_only_one_allowed'] = 'اگر فیلد شرکت پر نشده بود تنها 1 مخاطب بتواند ثبت شود. سیستم این مشتری را به عنوان شخص به حساب می آورد.';
+$lang['customer_contact_person_only_one_allowed'] = 'اگر فیلد شرکت پر نشده بود تنها 1 کاربر بتواند ثبت شود. سیستم این مشتری را به عنوان شخص به حساب می آورد.';
 $lang['web_to_lead'] = 'دعوت مشتری احتمالی از سایت دیگر';
 $lang['web_to_lead_form'] = 'فرم دعوت مشتری مشتری احتمالی از سایت دیگر';
 $lang['new_form'] = 'فرم جدید';
@@ -2915,19 +2915,19 @@ $lang['total_tickets_deleted'] = 'مجموع تیکت های حذف شده: %s';
 
 # Version 1.5.1
 $lang['ticket_linked_to_project'] = 'این تیکت مرتبط است با پروژه: %s';
-$lang['only_own_files_contacts'] = 'مخاطبین فقط فایل های خود را مشاهده می کنند که در پورتال مشتری بارگذاری شده اند (فایل هایی که در پروفایل مشتری بارگذاری می شوند)';
-$lang['only_own_files_contacts_help'] = 'اگر فایل را به صورت دستی از پروفایل مشتری برای سایر مخاطبین به اشتراک بگذارید، آنها قادر به دیدن فایل خواهند بود.';
+$lang['only_own_files_contacts'] = 'کاربرین فقط فایل های خود را مشاهده می کنند که در پورتال مشتری بارگذاری شده اند (فایل هایی که در پروفایل مشتری بارگذاری می شوند)';
+$lang['only_own_files_contacts_help'] = 'اگر فایل را به صورت دستی از پروفایل مشتری برای سایر کاربرین به اشتراک بگذارید، آنها قادر به دیدن فایل خواهند بود.';
 $lang['share_file_with'] = 'اشتراک گذاری فایل با';
-$lang['file_share_visibility_notice'] = 'این فایل با مخاطبین به اشتراک گذاشته نشده است، قابلیت نمایش را تغیر داده و مجدد تلاش کنید.';
+$lang['file_share_visibility_notice'] = 'این فایل با کاربرین به اشتراک گذاشته نشده است، قابلیت نمایش را تغیر داده و مجدد تلاش کنید.';
 $lang['share_file_with_show'] = 'این فایل به اشتراک گذاشته شده است با: %s';
-$lang['allow_primary_contact_to_view_edit_billing_and_shipping'] = 'به مخاطب اصلی اجازه دهید صورتحساب و جزئیات حمل و نقل را مشاهده و ویرایش کند';
+$lang['allow_primary_contact_to_view_edit_billing_and_shipping'] = 'به کاربر اصلی اجازه دهید صورتحساب و جزئیات حمل و نقل را مشاهده و ویرایش کند';
 $lang['estimate_due_after'] = 'سر رسید پیش فاکتور بعد از (روز)';
 
 # Version 1.6.0
 $lang['my_timesheets'] = 'برگه های ثبت ساعت من';
 $lang['today'] = 'امروز';
 $lang['open_in_dropbox'] = 'باز شدن در دراپ باکس';
-$lang['show_primary_contact'] = 'نام کامل مخاطب اصلی را در %s نمایش بده';
+$lang['show_primary_contact'] = 'نام کامل کاربر اصلی را در %s نمایش بده';
 $lang['view_members_timesheets'] = 'مشاهده همه برگه های ثبت ساعت';
 $lang['priority'] = 'اولویت';
 $lang['fetch_from_google'] = 'واکشی از گوگل';
@@ -2935,7 +2935,7 @@ $lang['customer_fetch_lat_lng_usage'] = 'برای دریافت بهترین نت
 $lang['g_search_address_not_found'] = 'آدرس یافت نشد، لطفاً دوباره امتحان کنید';
 $lang['proposals_report'] = 'گزارش پروپوزال ها';
 $lang['staff_members_open_tickets_to_all_contacts_help'] = 'اگر کارمند دسترسی مشاهده مشتریان را نداشته باشد تنها قادر به ایجاد تیکت جدید برای مشتریانی خواهد بود که به عنوان مدیر به آن مشتری تخصیص داده شده باشد.';
-$lang['staff_members_open_tickets_to_all_contacts'] = 'به کارکنان اجازه می دهید تیکت ها را برای همه مخاطبین باز کنند؟ ';
+$lang['staff_members_open_tickets_to_all_contacts'] = 'به کارکنان اجازه می دهید تیکت ها را برای همه کاربرین باز کنند؟ ';
 $lang['charts_based_report'] = 'گزارش مبتنی بر نمودارها';
 $lang['responsible_admin'] = 'مدیر مسئول';
 $lang['tags'] = 'برچسب ها';
@@ -3097,7 +3097,7 @@ $lang['modal_width_class'] = 'کلاس عرض مدال';
 $lang['contract_copy'] = 'کپی';
 $lang['contract_copied_successfully'] = 'قرارداد با موفقیت کپی شد';
 $lang['contract_copied_fail'] = 'کپی قرارداد انجام نشد';
-$lang['project_marked_as_finished_to_contacts'] = 'ارسال ایمیل<b>پروژه به عنوان تکمیل شده علامتگذاری شد</b> به مخاطبین مشتری';
+$lang['project_marked_as_finished_to_contacts'] = 'ارسال ایمیل<b>پروژه به عنوان تکمیل شده علامتگذاری شد</b> به کاربرین مشتری';
 $lang['only_admins'] = 'فقط مدیران';
 $lang['new_notification'] = 'اعلان جدید!';
 $lang['enable_desktop_notifications'] = 'فعال کردن اعلان های دسکتاپ';
@@ -3109,7 +3109,7 @@ $lang['last_active'] = 'آخرین فعالیت';
 $lang['open_ticket'] = 'بازکردن تیکت';
 $lang['task_add_description'] = 'افزودن توضیحات';
 $lang['project_setting_create_tasks'] = 'ایجاد کردن وظایف';
-$lang['project_setting_edit_tasks'] = 'ویرایش وظایف (فقط وظایف ایجاد شده از طریق مخاطب)';
+$lang['project_setting_edit_tasks'] = 'ویرایش وظایف (فقط وظایف ایجاد شده از طریق کاربر)';
 
 # Version 1.9.2
 $lang['items_report'] = 'گزارش آیتم';
@@ -3299,7 +3299,7 @@ $lang['use_company_name_instead'] = 'به جای آن از نام شرکت اس�
 $lang['customer_delete_transactions_warning'] = 'این مشتری دارای تراکنش هایی است، %s ، برای انجام این عملیات باید تراکنش ها را حذف کرده یا به مشتری دیگری منتقل کنید.';
 
 # Version 1.9.8
-$lang['sending_email_contact_permissions_warning'] = 'انتخاب خودکار مخاطبین مشتری ناموفق بود. اطمینان حاصل کنید که مشتری دارای مخاطبین فعال بوده و مخاطبین مرتبط با اعلان های ایمیل برای %s فعال شده است.';
+$lang['sending_email_contact_permissions_warning'] = 'انتخاب خودکار کاربرین مشتری ناموفق بود. اطمینان حاصل کنید که مشتری دارای کاربرین فعال بوده و کاربرین مرتبط با اعلان های ایمیل برای %s فعال شده است.';
 $lang['help_leads_create_permission'] = 'همه اعضا می توانند مشتری احتمالی ایجاد کنند، به غیر از اعضایی که به عنوان غیرکارکنان مشخص شده اند.';
 $lang['help_leads_edit_permission'] = 'هرکسی که به مشتری احتمالی مشخصی دسترسی داشته باشد می تواند بیشتر اطلاعات مربوط به مشتری احتمالی را ویرایش کند.';
 $lang['triggers'] = 'پیامک های خودکار';
@@ -3319,8 +3319,8 @@ $lang['allow_non_admin_members_to_import_leads'] = 'به کارکنان غیر �
 $lang['project_hide_tasks_settings_info'] = 'وظایف از جدول وظایف اصلی برای این پروژه مستثنی شده اند، می توانید وظایف پروژه را فقط در این قسمت مشاهده کنید.';
 
 # Version 1.9.9
-$lang['ticket_create_no_contact'] = 'تیکت بدون مخاطب';
-$lang['ticket_create_to_contact'] = 'تیکت برای مخاطب';
+$lang['ticket_create_no_contact'] = 'تیکت بدون کاربر';
+$lang['ticket_create_to_contact'] = 'تیکت برای کاربر';
 $lang['showing_billable_tasks_from_project'] = 'نمایش وظایف قابل پرداخت از پروژه';
 $lang['no_billable_tasks_found'] = 'وظایف قابل پرداخت یافت نشد';
 $lang['help_leads_permission_view'] = 'اگر تیک این مجوز زده نشود، کارمند تنها می تواند مشتری احتمالی ای را که به آن اختصاص داده شده است، مشتری احتمالی ای که توسط او ایجاد شده است و مشتری احتمالی ای که به عنوان عمومی مشخص شده است را ببیند.';
@@ -3384,9 +3384,9 @@ $lang['subscriptions_description'] = 'توضیحات';
 $lang['subscribe'] = 'اشتراک';
 $lang['subscription_date'] = 'تاریخ';
 $lang['first_billing_date'] = 'تاریخ اولین صورتحساب';
-$lang['allow_primary_contact_to_update_credit_card'] = 'به مخاطب اصلی اجازه داده می شود توکن کارت اعتباری ذخیره شده را به روز کند؟';
+$lang['allow_primary_contact_to_update_credit_card'] = 'به کاربر اصلی اجازه داده می شود توکن کارت اعتباری ذخیره شده را به روز کند؟';
 $lang['show_subscriptions_in_customers_area'] = 'اشتراک ها در پورتال مشتریان نشان داده شود؟';
-$lang['show_subscriptions_in_customers_area_help'] = 'این گزینه فقط برای مخاطب اصلی مشتری معتبر است.';
+$lang['show_subscriptions_in_customers_area_help'] = 'این گزینه فقط برای کاربر اصلی مشتری معتبر است.';
 $lang['subscription_sent_to_email_success'] = 'اشتراک با موفقیت به ایمیل ارسال شد.';
 $lang['subscription_sent_to_email_fail'] = 'ارسال اشتراک به ایمیل انجام نشد.';
 $lang['new_subscription'] = 'اشتراک جدید';
@@ -3394,7 +3394,7 @@ $lang['subscription_status'] = 'وضعیت';
 $lang['next_billing_cycle'] = 'سیکل صورتحساب بعدی';
 $lang['subscription_not_subscribed'] = 'مشترک نشده';
 $lang['send_subscription'] = 'ارسال اشتراک';
-$lang['subscription_will_send_to_primary_contact'] = 'اشتراک به مخاطب اصلی ارسال می شود.';
+$lang['subscription_will_send_to_primary_contact'] = 'اشتراک به کاربر اصلی ارسال می شود.';
 $lang['subscription_resumed'] = 'اشتراک با موفقیت فعال شد';
 $lang['subscription_canceled'] = 'لغو شده';
 $lang['no_credit_card_found'] = 'هیچ کارت اعتباری یافت نشد';
@@ -3513,7 +3513,7 @@ $lang['total_items_deleted'] = 'کل کالاها یا خدمات حذف شده:
 $lang['billable_amount'] = 'مبلغ قابل پرداخت';
 $lang['last_child_invoice_date'] = 'تاریخ آخرین فاکتور فرزند';
 $lang['good_morning'] = 'صبح بخیر';
-$lang['good_afternoon'] = 'بعدازظهر بخیر';
+$lang['good_afternoon'] = 'عصر بخیر';
 $lang['good_evening'] = 'عصر بخیر';
 $lang['description_in_invoice_item'] = 'توضیحات مربوط به مورد صورتحساب را بگنجان.';
 $lang['description_in_invoice_item_help'] = 'اگر می خواهید اطلاعات دیگری در مورد فاکتور اشتراک داشته باشید، مفید است. مثلا این اشتراک شامل چه کالا یا خدماتی است.';
@@ -3631,15 +3631,15 @@ $lang['gantt_view_year'] = 'نمایش سالانه';
 
 # Version 2.7.0
 $lang['hour_of_day_perform_tasks_reminder_notification_help'] = 'فرمت 24 ساعته برای مثال 9 برای 9 صبح یا 15 برای 3 بعد از ظهر. این مورد برای وظایف تکرار شونده، یادآورهای وظیفه و ... مورد استفاده قرار می گیرد.';
-$lang['clients_nav_contacts'] = 'مخاطبین';
-$lang['clients_my_contacts'] = 'مخاطبین';
-$lang['clients_my_contact'] = 'مخاطب';
-$lang['new_contact'] = 'مخاطب جدید';
-$lang['customer_contact'] = 'مخاطبین من';
-$lang['clients_contact_added'] = 'مخاطب با موفقیت اضافه شد';
-$lang['clients_contact_updated'] = 'مخاطب با موفقیت به روز شد';
-$lang['allow_primary_contact_to_manage_other_contacts'] = 'به مخاطب اصلی اجازه ویرایش سایر مخاطبین مشتری را بده';
-$lang['contact_form_validation_is_unique'] = 'مخاطب با این {field} از قبل در سیستم ما وجود دارد.';
+$lang['clients_nav_contacts'] = 'کاربرین';
+$lang['clients_my_contacts'] = 'کاربرین';
+$lang['clients_my_contact'] = 'کاربر';
+$lang['new_contact'] = 'کاربر جدید';
+$lang['customer_contact'] = 'کاربرین من';
+$lang['clients_contact_added'] = 'کاربر با موفقیت اضافه شد';
+$lang['clients_contact_updated'] = 'کاربر با موفقیت به روز شد';
+$lang['allow_primary_contact_to_manage_other_contacts'] = 'به کاربر اصلی اجازه ویرایش سایر کاربرین مشتری را بده';
+$lang['contact_form_validation_is_unique'] = 'کاربر با این {field} از قبل در سیستم ما وجود دارد.';
 $lang['invoice_number_not_applied_on_draft'] = 'اگر فاکتور به عنوان پیش نویس ذخیره شود، شماره اعمال نمی شود، بلکه در عوض، شماره فاکتور بعدی هنگام ارسال فاکتور به مشتری یا علامت گذاری فاکتور به عنوان ارسال شده ثبت خواهد شد.';
 $lang['two_factor_authentication_disabed'] = 'غیر فعال';
 $lang['enable_google_two_factor_authentication'] = 'فعال کردن احراز هویت گوگل';
@@ -3757,11 +3757,11 @@ $lang['task_checklist_assigned'] = 'تخصیص داده شده به %s';
 $lang['custom_field_add_edit_default_value'] = 'مقدار پیشفرض';
 
 # Version 2.8.3
-$lang['projects_send_contact_notification'] = 'ارسال اعلان های مخاطبین';
-$lang['project_send_all_contacts_with_notifications_enabled'] = 'برای همه مخاطبینی که اعلانهای پروژه را فعال کرده اند';
+$lang['projects_send_contact_notification'] = 'ارسال اعلان های کاربرین';
+$lang['project_send_all_contacts_with_notifications_enabled'] = 'برای همه کاربرینی که اعلانهای پروژه را فعال کرده اند';
 $lang['project_do_not_send_contacts_notifications'] = 'اعلان ارسال نکن';
-$lang['project_send_specific_contacts_with_notification'] = 'مخاطبین به خصوص';
-$lang['project_contacts_to_notify'] = 'انتخاب مخاطب برای اعلان';
+$lang['project_send_specific_contacts_with_notification'] = 'کاربرین به خصوص';
+$lang['project_contacts_to_notify'] = 'انتخاب کاربر برای اعلان';
 $lang['contract_signed_by'] = 'نام امضا کننده';
 $lang['contract_signed_date'] = 'تاریخ امضا';
 $lang['contract_signed_ip'] = 'آدرس آی پی';
@@ -3833,7 +3833,7 @@ $lang['add_batch_payments'] = 'افزودن پرداختی ها';
 $lang['batch_payment_filter_by_customer'] = 'فیلتر فاکتورها با مشتری';
 $lang['batch_payments'] = 'پرداخت های گروهی';
 $lang['batch_payment_added_successfully'] = 'شما با موفقیت %s پرداختی را اضافه کردید';
-$lang['batch_payments_send_invoice_payment_recorded'] = 'ایمیل ثبت پرداخت فاکتور را برای مخاطبین مشتری ارسال نکن';
+$lang['batch_payments_send_invoice_payment_recorded'] = 'ایمیل ثبت پرداخت فاکتور را برای کاربرین مشتری ارسال نکن';
 $lang['invoice_batch_payments']                           = 'Batch Payment';
 $lang['staff_is_currently_replying'] = '%s در حال پاسخگویی به تیکت است.';
 

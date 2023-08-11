@@ -9,7 +9,7 @@
 						<center><a href="https://miladworkshop.ir/blog/perfex-crm-persian" target="_blank"><img src="<?php echo module_dir_url('persian', 'assets/image/logo.png'); ?>" alt="Miladworkshop" /></a></center>
 					</li>
                     <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">تنظیمات اصلی</a></li>
-                    <li role="presentation"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">تنظیمات ورود پیامکی</a></li>
+                    <li role="presentation"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">ورود و عضویت پیشرفته</a></li>
                     <li role="presentation"><a href="#more" aria-controls="more" role="tab" data-toggle="tab">سایر ماژول‌های منتشر شده</a></li>
                     <li role="presentation"><a href="#changelog" aria-controls="changelog" role="tab" data-toggle="tab">لیست تغییرات و بروزرسانی‌ها</a></li>
                 </ul>
@@ -62,7 +62,10 @@
 								<div role="tabpanel" class="tab-pane ptop10" id="login">
 									<div class="row">
 										<div class="col-md-12">
-											این قابلیت در نسخه جدید افزوده خواهد شد.
+											<div class="col-md-12">
+												<?php echo persian_form_select('persian_login', 'ورود و عضویت پیشرفته', 'rtl', array('Y' => 'فعال', 'N' => 'غیرفعال')); ?>
+												<small>در صورت فعال بودن, ورود کاربران از طریق کد یکبار مصرف پیامکی و عضویت از طریق فرم پیشرفته مخصوص افزونه توسعه پارسی انجام خواهد شد.</small>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -119,6 +122,15 @@
 									<div class="row">
 										<div class="col-md-12">
 											<ul class="persian-timeline">
+												<li>
+													<p class="persian-timeline-date">1402/05/20</p>
+													<div class="persian-timeline-content">
+														<p>رفع خطای 404 در صفحه تنظیمات ماژول</p>
+														<p>اصلاح و بهبود ترجمه</p>
+														<p>اصلاح و بهبود ظاهر</p>
+														<p>افزوده شدن قابلیت ایجاد توکن ورود از طری وب سرویس</p>
+													</div>
+												</li>
 												<li>
 													<p class="persian-timeline-date">1402/05/04</p>
 													<div class="persian-timeline-content">
