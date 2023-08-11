@@ -9,6 +9,7 @@
 						<center><a href="https://miladworkshop.ir/blog/perfex-crm-persian" target="_blank"><img src="<?php echo module_dir_url('persian', 'assets/image/logo.png'); ?>" alt="Miladworkshop" /></a></center>
 					</li>
                     <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">تنظیمات اصلی</a></li>
+                    <li role="presentation"><a href="#assistant" aria-controls="assistant" role="tab" data-toggle="tab">دستیار توسعه پارسی</a></li>
                     <li role="presentation"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">ورود و عضویت پیشرفته</a></li>
                     <li role="presentation"><a href="#more" aria-controls="more" role="tab" data-toggle="tab">سایر ماژول‌های منتشر شده</a></li>
                     <li role="presentation"><a href="#changelog" aria-controls="changelog" role="tab" data-toggle="tab">لیست تغییرات و بروزرسانی‌ها</a></li>
@@ -56,6 +57,17 @@
 										<div class="col-md-12">
 											<?php echo persian_form_select('persian_verify_email', 'تایید خودکار آدرس ایمیل', 'rtl', array('Y' => 'فعال', 'N' => 'غیرفعال')); ?>
 											<small>در صورت فعال بود, پس از ثبت نام کاربر جدید, آدرس ایمیل کاربر بصورت خودکار فعال شده و نیازی به تایید و فعال سازی آدرس ایمیل توسط کاربر نیست.</small>
+										</div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane ptop10" id="assistant">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="col-md-12">
+												<a href="javascript:void(0)" onclick="persian_email(); return false;" class="btn btn-primary persian-float-left">ترجمه و فارسی سازی</a>
+												<span style="font-weight:bold;">ترجمه و فارسی سازی ایمیل‌های سیستم</span>
+												<br /><br />با کلیک روی دکمه " ترجمه و فارسی سازی " متن ایمیل‌های سیستم بصورت خودکار ترجمه و ایمیل‌های فارسی به سیستم افزوده خواهد شد.
+											</div>
 										</div>
 									</div>
 								</div>
@@ -125,12 +137,19 @@
 												<li>
 													<p class="persian-timeline-date">1402/05/20</p>
 													<div class="persian-timeline-content">
-														<p>رفع خطای 404 در صفحه تنظیمات ماژول</p>
-														<p>اصلاح و بهبود ترجمه</p>
 														<p>اصلاح و بهبود ظاهر</p>
+														<p>اصلاح و بهبود ترجمه</p>
+														<p>افزوده شدن دستیار توسعه پارسی</p>
+														<p>رفع خطای 404 در صفحه تنظیمات ماژول</p>
 														<p>افزوده شدن قابلیت ایجاد توکن ورود از طری وب سرویس</p>
+														<p>افزوده شدن فارسی ساز ایمیل‌های سیستم به دستیار توسعه پارسی</p>
+														<p>افزوده شدن فارسی ساز ایمیل تیکت ها به دستیار توسعه پارسی</p>
+														<p>افزوده شدن فارسی ساز ایمیل پیش فاکتور ها به دستیار توسعه پارسی</p>
+														<p>افزوده شدن فارسی ساز ایمیل فاکتور ها به دستیار توسعه پارسی</p>
+														<p>افزوده شدن فارسی ساز ایمیل قراردادها به دستیار توسعه پارسی</p>
 													</div>
 												</li>
+												<hr />
 												<li>
 													<p class="persian-timeline-date">1402/05/04</p>
 													<div class="persian-timeline-content">
@@ -175,6 +194,20 @@ function save()
 	});
 
     $.post(admin_url + 'persian/save', {
+        data: post_data
+    }).done(function() {
+        var tab 		= $('#persian_area').find('li.active > a:eq(0)').attr('href');
+        tab 			= tab.substring(1, tab.length)
+        window.location = admin_url + 'persian?tab=' + tab;
+    });
+}
+
+function persian_email()
+{
+    var post_data 		= {};
+	post_data['check'] 	= 'OK';
+
+	$.post(admin_url + 'persian/email', {
         data: post_data
     }).done(function() {
         var tab 		= $('#persian_area').find('li.active > a:eq(0)').attr('href');

@@ -32,4 +32,9 @@ class Persian extends AdminController
 			update_option($key, $value);
 		}
     }
+
+    public function email()
+    {		
+        persian_translate_email();
+    }
 }

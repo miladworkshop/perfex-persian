@@ -137,3 +137,12 @@ function persian_send_sms($mobile, $message)
 		return false;
 	}
 }
+
+function persian_translate_email()
+{
+	$CI = &get_instance();
+
+	require_once("persian_email.php");
+
+	return true;
+}

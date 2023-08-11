@@ -53,6 +53,9 @@ label {
 .persian-timeline > li {
 	margin-bottom: 60px;
 }
+.persian-timeline-date {
+	font-weight:bold;
+}
 
 @media ( min-width : 640px )
 {
@@ -637,4 +640,8 @@ ul.tagit li.tagit-choice .tagit-close{
 .customers-top-submenu-calendar span {
 	font-size:14px;
 	padding-right:5px;
+}
+
+.persian-float-left {
+	float:left;
 }
