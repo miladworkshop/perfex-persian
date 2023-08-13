@@ -6,8 +6,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	Description: بهینه سازی زبان پارسی و شمسی سازی سیستم
 	Author: میلاد مالدار
 	Author URI: https://miladworkshop.ir
-	Version: 1.0.1
-	Requires at least: 3.0.*
+	Version: 1.0.2
+	Requires at least: 2.4.*
 */
 
 $CI = &get_instance();

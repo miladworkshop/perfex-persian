@@ -287,6 +287,69 @@ WHERE `slug` = 'credit-note-send-to-client' AND `language` = 'persian' LIMIT 1;"
 
 
 /* task */
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'وظیفه جدیدی به شما واگذار شد - {task_name}',
+`message` 	= '<p><span>{staff_firstname} گرامی</span><br /><br /><span>یک وظیفه با مشخصات زیر به شما واگذار شد :</span><br /><br /><span><strong>عنوان :</strong> {task_name}<br /></span><strong>زمان شروع :</strong> {task_startdate}<br /><span><strong>زمان پایان :</strong> {task_duedate}</span><br /><span><strong>اولویت :</strong> {task_priority}<br /><br /></span><span>اطلاعات بیشتر : <a href=\"{task_link}\">{task_name}</a> </span><br /><br /><span>با تشکر,</span><br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'task-assigned' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'شما به عنوان دنبال کننده به وظیفه افزوده شده‌اید / {task_name}',
+`message` 	= '<p><span>{staff_firstname} گرامی</span></p>
+<p><br /><span>شما به عنوان دنبال کننده به وظیفه با مشخصات زیر افزوده شده اید :</span><br /><br /><span><strong>عنوان :</strong> {task_name}</span><br /><span><strong>زمان سررسید :</strong> {task_startdate}</span><br /><br />اطلاعات بیشتر : <a href=\"{task_link}\">{task_name}</a><br /><br /><span>با تشکر,</span><br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'task-added-as-follower' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'یک دیدگاه جدید در وظیفه - {task_name}',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br />دیدگاه جدیدی روی وظیفه با مشخصات زیر درج شد :<br /><br /><strong>عنوان :</strong> {task_name}<br /><strong>دیدگاه :</strong> {task_comment}<br /><br />اطلاعات بیشتر : <a href=\"{task_link}\">{task_name}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'task-commented' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پیوست جدید روی وظیفه - {task_name}',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br /><strong>{task_user_take_action}</strong> پیوست جدیدی به وظیفه افزود :<br /><br /><strong>عنوان :</strong> {task_name}<br /><br />اطلاعات بیشتر : <a href=\"{task_link}\">{task_name}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'task-added-attachment' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'یادآوری مهلت انجام وظیفه',
+`message` 	= '<p>{staff_firstname} {staff_lastname} گرامی<br /><br />این یک ایمیل خودکار از {companyname} است.<br /><br />مهلت انجام وظیفه {task_name} در تاریخ {task_duedate} به پایان خواهد رسید.<br />این کار هنوز تمام نشده است.<br /><br />اطلاعات بیشتر : <a href=\"{task_link}\">{task_name}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'task-deadline-notification' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پیوست جدیدی روی وظیفه افزوده شد -  {task_name}',
+`message` 	= '<p><span>{contact_firstname} {contact_lastname} گرامی</span><br /><br />{task_user_take_action} پیوستی را به وظیفه زیر افزود :<br /><br /><strong>عنوان :</strong><span> {task_name}</span><br /><br /><span>اطلاعات بیشتر : <a href=\"{task_link}\">{task_name}</a></span><br /><br /><span>با تشکر,</span><br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'task-added-attachment-to-contacts' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'ثبت دیدگاه جدید روی وظیفه - {task_name}',
+`message` 	= '<p><span>{contact_firstname} {contact_lastname} گرامی</span><br /><br /><span>یک دیدگاه جدید روی وظیفه با مشخصات زیر افزوده شد :</span><br /><br /><strong>عنوان :</strong><span> {task_name}</span><br /><strong>دیدگاه :</strong><span> {task_comment}</span><br /><br /><span>اطلاعات بیشتر : <a href=\"{task_link}\">{task_name}</a></span><br /><br /><span>با تشکر,</span><br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'task-commented-to-contacts' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'وضعیت وظیفه تغییر یافت',
+`message` 	= '<p><span>{staff_firstname} گرامی</span><br /><br /><span><strong>{task_user_take_action}</strong> وضعیت <strong>{task_status}</strong></span><br /><br /><span><strong>عنوان :</strong> {task_name}</span><br /><span><strong>تاریخ سررسید :</strong> {task_duedate}</span><br /><br /><span>اطلاعات بیشتر : <a href=\"{task_link}\">{task_name}</a></span><br /><br /><span>با تشکر,</span><br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'task-status-change-to-staff' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'وضعیت وظیفه تغییر کرد',
+`message` 	= '<p><span>{contact_firstname} {contact_lastname} گرامی</span><br /><br /><span><strong>{task_user_take_action}</strong> وضعیت <strong>{task_status}</strong></span><br /><br /><span><strong>عنوان :</strong> {task_name}</span><br /><span><strong>سررسید :</strong> {task_duedate}</span><br /><br /><span>نمایش اطلاعات بیشتر در خصوص وظیفه <a href=\"{task_link}\">{task_name}</a></span><br /><br /><span>با تشکر,</span><br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'task-status-change-to-contacts' AND `language` = 'persian' LIMIT 1;");
 /* task */
 
 

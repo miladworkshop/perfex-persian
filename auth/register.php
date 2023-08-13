@@ -2,11 +2,16 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $password 	= strtoupper(md5(uniqid()));
+$email 		= $data->input->post("email");
 $mobile 	= $data->input->post("mobile");
 $firstname 	= $data->input->post("firstname");
 $lastname 	= $data->input->post("lastname");
 $usertype 	= $data->input->post("usertype");
 $company 	= $data->input->post("company");
+$address 	= $data->input->post("address");
+$state 		= $data->input->post("state");
+$city 		= $data->input->post("city");
+$zip 		= $data->input->post("zip");
 
 if (isset($mobile) && $mobile != false)
 {
@@ -19,14 +24,14 @@ if (isset($mobile) && $mobile != false)
 		if ($user->num_rows() == 0)
 		{
 			$clientid = $data->clients_model->add([
-				'billing_street'      => '',
-				'billing_city'        => '',
-				'billing_state'       => '',
-				'billing_zip'         => '',
+				'billing_street'      => $address,
+				'billing_city'        => $city,
+				'billing_state'       => $state,
+				'billing_zip'         => $zip,
 				'billing_country'     => 104,
 				'firstname'           => $firstname,
 				'lastname'            => $lastname,
-				'email'               => '',
+				'email'               => $email,
 				'contact_phonenumber' => $mobile,
 				'website'             => '',
 				'title'               => '',
@@ -35,10 +40,10 @@ if (isset($mobile) && $mobile != false)
 				'vat'                 => '',
 				'phonenumber'         => $mobile,
 				'country'             => 104,
-				'city'                => '',
-				'address'             => '',
-				'zip'                 => '',
-				'state'               => '',
+				'city'                => $city,
+				'address'             => $address,
+				'zip'                 => $zip,
+				'state'               => $state,
 				'custom_fields'       => [],
 				'default_language'    => 'persian',
 			], true);
@@ -49,6 +54,8 @@ if (isset($mobile) && $mobile != false)
 
 				if (isset($user->id) && $user->id > 0)
 				{
+					$data->db->update(db_prefix() .'contacts', array('is_primary' => 1), array('id' => $user->id));
+
 					$otptime = time();
 					$otpcode = rand(13579,97531);
 					$otp_key = strtoupper(uniqid());
@@ -123,25 +130,52 @@ if (isset($mobile) && $mobile != false)
 								<option value="2"<?php if(isset($usertype) && $usertype == "2") { echo "selected"; } ?>>حقوقی</option>
 							</select>
 						</div>
-						<div class="auth-credentials m-b-xxl col-12">
-							<label for="mobile" class="form-label">شماره موبایل</label>
-							<input type="text" class="form-control dir-rtl" name="mobile" id="mobile" placeholder="شماره موبایل خود را وارد کنید" dir="ltr" value="<?php echo $mobile; ?>" required>
-						</div>
 						<div class="auth-credentials m-b-xxl col-md-6">
 							<label for="firstname" class="form-label">نام</label>
-							<input type="text" class="form-control dir-rtl" name="firstname" id="firstname" placeholder="نام خود را وارد کنید" dir="rtl" value="<?php echo $firstname; ?>" required>
+							<input type="text" class="form-control dir-rtl" name="firstname" id="firstname" dir="rtl" value="<?php echo $firstname; ?>" required>
 						</div>
 						<div class="auth-credentials m-b-xxl col-md-6">
 							<label for="lastname" class="form-label">نام خانوادگی</label>
-							<input type="text" class="form-control dir-rtl" name="lastname" id="lastname" placeholder="نام خانوادگی خود را وارد کنید" dir="rtl" value="<?php echo $lastname; ?>" required>
+							<input type="text" class="form-control dir-rtl" name="lastname" id="lastname" dir="rtl" value="<?php echo $lastname; ?>" required>
+						</div>
+						<div class="auth-credentials m-b-xxl col-12">
+							<label for="mobile" class="form-label">شماره موبایل</label>
+							<input type="text" class="form-control dir-rtl" name="mobile" id="mobile" dir="ltr" value="<?php echo $mobile; ?>" required>
+						</div>
+						<div class="auth-credentials m-b-xxl col-12">
+							<label for="email" class="form-label">آدرس ایمیل</label>
+							<input type="email" class="form-control dir-rtl" name="email" id="email" dir="ltr" value="<?php echo $email; ?>">
+						</div>
+						<div class="auth-credentials m-b-xxl col-6">
+							<label for="state" class="form-label">استان</label>
+							<select class="form-control dir-rtl" name="state" id="state" dir="rtl" required>
+								<option value="">انتخاب کنید ...</option>
+								<?php
+								foreach(json_decode(file_get_contents(module_dir_url('persian', 'assets/db/provinces.json')), true) as $province)
+								{
+									echo "<option value='{$province['name']}'>{$province['name']}</option>";
+								}
+								?>
+							</select>
+						</div>
+						<div class="auth-credentials m-b-xxl col-md-6">
+							<label for="city" class="form-label">شهر</label>
+							<input type="text" class="form-control dir-rtl" name="city" id="city" dir="rtl" value="<?php echo $city; ?>" required>
+						</div>
+						<div class="auth-credentials m-b-xxl col-12">
+							<label for="address" class="form-label">آدرس دقیق و کامل پستی</label>
+							<textarea class="form-control dir-rtl" name="address" id="address" dir="rtl" required><?php echo $address; ?></textarea>
+						</div>
+						<div class="auth-credentials m-b-xxl col-md-12">
+							<label for="zip" class="form-label">کد پستی</label>
+							<input type="text" class="form-control dir-rtl" name="zip" id="zip" dir="ltr" value="<?php echo $zip; ?>" required>
 						</div>
 						<div class="auth-credentials m-b-xxl col-12" id="usercompany" style="<?php if($usertype != "2") { echo "display:none;"; } ?>">
 							<label for="company" class="form-label">نام شرکت</label>
 							<input type="text" class="form-control dir-rtl" name="company" id="company" placeholder="نام شرکت خود را وارد کنید" dir="rtl" value="<?php echo $company; ?>">
 						</div>
-
 						<div class="auth-submit d-grid gap-2">
-							<button type="submit" class="btn btn-primary btn-lg">ثبت نام</button>
+							<button type="submit" class="btn btn-success btn-lg">ثبت نام</button>
 							<a href="<?php echo base_url('authentication/login'); ?>">ورود با کد یکبار مصرف</a>
 						</div>
 					</div>
