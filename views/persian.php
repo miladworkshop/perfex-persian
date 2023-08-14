@@ -65,8 +65,16 @@
 										<div class="col-md-12">
 											<div class="col-md-12">
 												<a href="javascript:void(0)" onclick="persian_email(); return false;" class="btn btn-primary persian-float-left">ترجمه و فارسی سازی</a>
-												<span style="font-weight:bold;">ترجمه و فارسی سازی ایمیل‌های سیستم</span>
+												<span style="font-weight:bold;">ترجمه و فارسی سازی ایمیل‌های سیستم [ Email ]</span>
 												<br /><br />با کلیک روی دکمه " ترجمه و فارسی سازی " متن ایمیل‌های سیستم بصورت خودکار ترجمه و ایمیل‌های فارسی به سیستم افزوده خواهد شد.
+											</div>
+
+											<div class="col-md-12"><hr /></div>
+
+											<div class="col-md-12">
+												<a href="javascript:void(0)" onclick="persian_sms(); return false;" class="btn btn-primary persian-float-left">ترجمه و فارسی سازی</a>
+												<span style="font-weight:bold;">ترجمه و فارسی سازی پیامک‌های سیستم [ SMS ]</span>
+												<br /><br />با کلیک روی دکمه " ترجمه و فارسی سازی " متن پیامک‌های سیستم بصورت خودکار ترجمه و پیامک‌های فارسی به سیستم افزوده خواهد شد.
 											</div>
 										</div>
 									</div>
@@ -134,6 +142,13 @@
 									<div class="row">
 										<div class="col-md-12">
 											<ul class="persian-timeline">
+												<li>
+													<p class="persian-timeline-date">1402/05/XX</p>
+													<div class="persian-timeline-content">
+														<p>افزوده شدن فارسی ساز پیامک‌های سیستم به دستیار توسعه پارسی</p>
+													</div>
+												</li>
+												<hr />
 												<li>
 													<p class="persian-timeline-date">1402/05/20</p>
 													<div class="persian-timeline-content">
@@ -208,6 +223,20 @@ function persian_email()
 	post_data['check'] 	= 'OK';
 
 	$.post(admin_url + 'persian/email', {
+        data: post_data
+    }).done(function() {
+        var tab 		= $('#persian_area').find('li.active > a:eq(0)').attr('href');
+        tab 			= tab.substring(1, tab.length)
+        window.location = admin_url + 'persian?tab=' + tab;
+    });
+}
+
+function persian_sms()
+{
+    var post_data 		= {};
+	post_data['check'] 	= 'OK';
+
+	$.post(admin_url + 'persian/sms', {
         data: post_data
     }).done(function() {
         var tab 		= $('#persian_area').find('li.active > a:eq(0)').attr('href');

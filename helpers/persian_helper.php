@@ -143,6 +143,20 @@ function persian_translate_email()
 	$CI = &get_instance();
 
 	require_once("persian_email.php");
+}
 
-	return true;
+function persian_translate_sms()
+{
+	update_option("sms_trigger_invoice_overdue_notice", "{contact_firstname} {contact_lastname} گرامی\n\nمهلت پرداخت {invoice_number} به اتمام رسیده است.");
+	update_option("sms_trigger_invoice_due_notice", "{contact_firstname} {contact_lastname} گرامی\n\nیادآوری مهلت پرداخت فاکتور {invoice_number}\nمبلغ : {invoice_total}\nتاریخ : {invoice_duedate}");
+	update_option("sms_trigger_invoice_payment_recorded", "{contact_firstname} {contact_lastname} گرامی\n\nپرداخت شما به مبلغ {payment_total} روی فاکتور {invoice_number} ثبت شد.");
+	update_option("sms_trigger_estimate_expiration_reminder", "{contact_firstname} {contact_lastname} گرامی\n\nپیش فاکتور {estimate_number} به زودی منقضی خواهد شد.");
+	update_option("sms_trigger_proposal_expiration_reminder", "پروپوزال {proposal_number} به زودی منقضی خواهد شد.");
+	update_option("sms_trigger_proposal_new_comment_to_customer", "کاربر گرامی\n\nدیدگاه جدیدی روی پروپوزال {proposal_number} ثبت شد.");
+	update_option("sms_trigger_proposal_new_comment_to_staff", "مدیر گرامی\n\nدیدگاه جدیدی روی پروپوزال {proposal_number} ثبت شد.");
+	update_option("sms_trigger_contract_new_comment_to_customer", "{contact_firstname} {contact_lastname} گرامی\n\nدیدگاه جدیدی روی قرارداد {contract_id} ثبت شد.");
+	update_option("sms_trigger_contract_new_comment_to_staff", "مدیر گرامی\n\nدیدگاه جدیدی روی قرارداد {contract_id} ثبت شد.");
+	update_option("sms_trigger_contract_expiration_reminder", "{contact_firstname} {contact_lastname} گرامی\n\nقرارداد {contract_id} به زودی منقضی خواهد شد.");
+	update_option("sms_trigger_contract_sign_reminder_to_customer", "{contact_firstname} {contact_lastname} گرامی\n\nلطفاً نسبت به امضاء قرارداد {contract_id} اقدام فرمایید.");
+	update_option("sms_trigger_staff_reminder", "{staff_firstname} {staff_lastname} گرامی\n\nیادآوری\n\n{staff_reminder_description}");
 }

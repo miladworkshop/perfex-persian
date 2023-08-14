@@ -37,4 +37,9 @@ class Persian extends AdminController
     {		
         persian_translate_email();
     }
+
+    public function sms()
+    {		
+        persian_translate_sms();
+    }
 }
