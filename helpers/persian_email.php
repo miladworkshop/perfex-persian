@@ -353,29 +353,280 @@ WHERE `slug` = 'task-status-change-to-contacts' AND `language` = 'persian' LIMIT
 /* task */
 
 
-/* contact */
-/* contact */
+/* client */
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'خوش آمدید',
+`message` 	= '<p>{contact_firstname} {contact_lastname} گرامی<br /><br />عضویت و ثبت اطلاعات شما در <strong>{companyname}</strong> با موفقیت انجام شد.<br /><br />در صورتی که نیاز به پشتیبانی, مشاوره یا استفاده از خدمات ما را دارید, کافیست وارد <a href=\"{crm_url}\">پنل کاربری</a> خود شده و تیکت ارسال کنید.<br /><br />با تشکر, <br />{email_signature}<br /><br /><span style=\"color: #808080;\">( این ایمیل به صورت خودکار برای شما ارسال شده است, از پاسخ دادن به این ایمیل خودداری فرمایید )</span></p>'
+WHERE `slug` = 'new-client-created' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'بازیابی کلمه عبور',
+`message` 	= '<p><strong>بازیابی کلمه عبور</strong></p><p></p><p>کلمه عبور خود را فراموش کرده‌اید ؟<br />به منظور بازیابی کلمه عبور <a href=\"{reset_password_url}\">اینجا کلیک کنید</a>.<br /><br /><br /><br />این ایمیل به درخواست شما از سامانه {companyname} به منظور بازیابی و تغییر کلمه عبور شما ارسال شده است, در صورتی که این درخواست توسط شما صورت نگرفته است از کلیک روی لینک مربوطه خودداری نموده و این ایمیل را نادیده بگیرید.<br /><br />{email_signature}</p>'
+WHERE `slug` = 'contact-forgot-password' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'کلمه عبور شما تغییر یافت',
+`message` 	= '<p>کلمه عبور شما تغییر یافت</p><p></p><p>کلمه عبور اکانت شما ( {contact_email} ) تغییر یافت.</p><p></p><p>{email_signature}</p>'
+WHERE `slug` = 'contact-password-reseted' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'تغییر کلمه عبور',
+`message` 	= '<p><strong>تغییر کلمه عبور در سامانه {companyname}</strong></p><p></p><p>به منظور تغییر کلمه عبور <a href=\"{set_password_url}\">اینجا کلیک کنید</a>.<br /><br /><br />توجه داشته باشید لینک ارسال شده تنها تا 48 ساعت آینده معتبر بوده و پس از آن قابل استفاده نخواهد بود.<br /><br />آدرس ورود به سامانه : <a href=\"{crm_url}\">{crm_url}</a><br />آدرس ایمیل شما جهت ورود به سامانه : {contact_email}<br /><br />{email_signature}</p>'
+WHERE `slug` = 'contact-set-password' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'صورت حساب {statement_from} تا {statement_to}',
+`message` 	= '<p>{contact_firstname} {contact_lastname} گرامی<br /><br />شرح صورت حساب {statement_from} تا {statement_to} پیوست شده است.<br /><br />مجموع صورت حساب شما : {statement_balance_due}<br /><br />در صورت نیاز به اطلاعات بیشتر با ما در تماس باشید.<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'client-statement' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'یک کاربر جدید در سامانه ثبت شد',
+`message` 	= '<p>مدیر گرامی<br /><br />یک کاربر جدید با مشخصات زیر در سامانه ثبت شد :<br /><br /><strong>نام :</strong> {contact_firstname}<br /><strong>نام خانوادگی :</strong> {contact_lastname}<br /><strong>نام شرکت :</strong> {client_company}<br /><strong>آدرس ایمیل :</strong> {contact_email}</p>'
+WHERE `slug` = 'new-client-registered-to-admin' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'تایید آدرس ایمیل',
+`message` 	= '<p>{contact_firstname} {contact_lastname} گرامی<br /><br />به منظور تایید آدرس ایمیل و فعال سازی حساب کاربری روی لینک زیر کلیک کنید.<br /><br /><a href=\"{email_verification_url}\">تایید آدرس ایمیل و فعال سازی حساب کاربری</a><br /><br /><span style=\"color: #808080;\">در صورتی که ثبت نام توسط شما انجام نشده است این ایمیل را نادیده بگیرید.</span></p><p><br />{email_signature}</p>'
+WHERE `slug` = 'contact-verification-email' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'آپلود فایل جدید روی پروفایل توسط مشتری',
+`message` 	= '<p>مدیر گرامی<br /><br /></p><p>فایل جدیدی توسط کاربر {contact_firstname} {contact_lastname} روی پروفایل {client_company} آپلود شد.</p><p><br /><a href=\"{customer_profile_files_admin_link}\">به منظور بررسی فایل آپلود شده کلیک کنید.</a></p><p><br /><br />{email_signature}</p>'
+WHERE `slug` = 'new-customer-profile-file-uploaded-to-staff' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'حساب کاربری شما فعال شد',
+`message` 	= '<p>مدیر گرامی<br /><br />ضمن تشکر, حساب کاربری شما با موفقیت فعال شد.<br /><br />{email_signature}</p>'
+WHERE `slug` = 'client-registration-confirmed' AND `language` = 'persian' LIMIT 1;");
+/* client */
 
 
 /* proposal */
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پذیرش پروپوزال توسط مشتری',
+`message` 	= '<div>مدیر گرامی<br /><br />کاربر {proposal_proposal_to} پروپوزال با مشخصات زیر را پذیرفت :<br /><br /><strong>شماره :</strong> {proposal_number}<br /><strong>عنوان </strong>: {proposal_subject}<br /><b>مجموع </b>: {proposal_total}<br /><br />نمایش اطلاعات بیشتر : <a href=\"{proposal_link}\">{proposal_number}</a><br /><br />با تشکر,<br />{email_signature}</div>'
+WHERE `slug` = 'proposal-client-accepted' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پروپوزال {proposal_number} ایجاد شد',
+`message` 	= '<p>{proposal_proposal_to} گرامی<br /><br />پروپوزال پیوست شده را بررسی کنید.<br /><br />اعتبار پروپوزال : {proposal_open_till}<br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{proposal_link}\">{proposal_number}</a><br /><br />در صورتی که سوالی دارید با ما در ارتباط باشید.<br /><br />مشتاق تماس شما هستیم ...<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'proposal-send-to-customer' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پروپوزال توسط مشتری رد شد',
+`message` 	= '<p>مدیر گرامی<br /><br />پروپوزال {proposal_subject} توسط {proposal_proposal_to} رد شد.<br /><br />به منظور بررسی پروپوزال <a href=\"{proposal_link}\">کلیک کنید</a>.<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'proposal-client-declined' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'بابت تایید پروپوزال از شما سپاس گذاریم',
+`message` 	= '<p>{proposal_proposal_to} گرامی<br /><br />از اینکه پروپوزال را بررسی و تایید کرده‌اید سپاس گذاریم.<br /><br />ما مشتاقانه آماده همکاری با شما هستیم.<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'proposal-client-thank-you' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'دیدگاه جدید رو پروپوزال',
+`message` 	= '<p>{proposal_proposal_to} گرامی<br /><br />دیدگاه جدیدی روی پروپوزال {proposal_number} ثبت شد.<br /><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{proposal_link}\">{proposal_number}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'proposal-comment-to-client' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'ثبت دیدگاه جدید رو پروپوزال',
+`message` 	= '<p>مدیر گرامی<br /><br />دیدگاه جدیدی روی پروپوزال {proposal_subject} ثبت شد.<br /><br /><a href=\"{proposal_link}\">بررسی و نمایش اطلاعات بیشتر</a><br /><br />{email_signature}</p>'
+WHERE `slug` = 'proposal-comment-to-admin' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'یادآوری انقضاء پروپوزال',
+`message` 	= '<p>{proposal_proposal_to} گرامی<br /><br />پروپوزال {proposal_number} در {proposal_open_till} منقضی و فاقد اعتبار خواهد شد.<br /><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{proposal_link}\">{proposal_number}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'proposal-expiry-reminder' AND `language` = 'persian' LIMIT 1;");
+
 /* proposal */
 
 
 /* project */
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'گفتگوی جدید روی پروژه {project_name}',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br />گفتگوی جدید با مشخصات زیر روی پروژه توسط <strong>{discussion_creator}</strong> ایجاد شد.<br /><br /><strong>عنوان :</strong> {discussion_subject}<br /><strong>توضیحات :</strong> {discussion_description}<br /><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{discussion_link}\">{discussion_subject}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'new-project-discussion-created-to-staff' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'گفتگوی جدید روی پروژه {project_name}',
+`message` 	= '<p>{contact_firstname} {contact_lastname} گرامی<br /><br />گفتگوی جدیدی با مشخصات زیر رو پروژه توسط <strong>{discussion_creator}</strong> ایجاد شد.<br /><br /><strong>عنوان :</strong> {discussion_subject}<br /><strong>توضیحات :</strong> {discussion_description}<br /><br />نمایش و بررسی اطلاعات بیشتر : <a href=\"{discussion_link}\">{discussion_subject}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'new-project-discussion-created-to-customer' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پیوست فایل جدید رو پروژه {project_name}',
+`message` 	= '<p>{contact_firstname} {contact_lastname} گرامی<br /><br />پیوست جدیدی به پروژه {project_name} توسط {file_creator} افزوده شد.<br /><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{project_link}\">{project_name}</a><br /><br />دسترسی به پیوست از طریق سامانه : <a href=\"{discussion_link}\">{discussion_subject}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'new-project-file-uploaded-to-customer' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پیوست فایل جدید رو پروژه {project_name}',
+`message` 	= '<p>{staff_firstname} گرامی</p><p>پیوست جدیدی به پروژه {project_name} توسط {file_creator} افزوده شد.</p><p>بررسی و نمایش اطلاعات بیشتر : <a href=\"{project_link}\">{project_name}<br /></a><br />دسترسی به پیوست از طریق سامانه : <a href=\"{discussion_link}\">{discussion_subject}</a></p><p>با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'new-project-file-uploaded-to-staff' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'ثبت دیدگاه جدید روی گفتگوی پروژه',
+`message` 	= '<p><span>{contact_firstname} {contact_lastname} گرامی</span><br /><br /><span>دیدگاه جدیدی روی گفتگوی <strong>{discussion_subject}</strong> توسط <strong>{comment_creator}</strong> ثبت شد.</span><br /><br /><span><strong>عنوان گفتگو :</strong> {discussion_subject}</span><br /><span><strong>دیدگاه </strong>: {discussion_comment}</span><br /><br /><span>بررسی و نمایش اطلاعات بیشتر : <a href=\"{discussion_link}\">{discussion_subject}</a></span><br /><br /><span>با تشکر,</span><br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'new-project-discussion-comment-to-customer' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'ثبت دیدگاه جدید روی گفتگوی پروژه ',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br /><span>دیدگاه جدیدی روی گفتگوی <strong>{discussion_subject}</strong> توسط <strong>{comment_creator}</strong> ثبت شد.</span><br /><br /><strong>عنوان گفتگو :</strong> {discussion_subject}<br /><strong>دیدگاه :</strong> {discussion_comment}<br /><br /><span>بررسی و نمایش اطلاعات بیشتر </span>: <a href=\"{discussion_link}\">{discussion_subject}</a><br /><br /><span>با تشکر</span>,<br />{email_signature}</p>'
+WHERE `slug` = 'new-project-discussion-comment-to-staff' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'یک پروژه جدید به شما محول شده است',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br />یک پروژه جدید به شما محول شده است.<br /><br />بررسی و نمایش اطلاعات بیشتر پروژه : <a href=\"{project_link}\">{project_name}</a><br /><br />{email_signature}</p>'
+WHERE `slug` = 'staff-added-as-project-member' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پروژه جدید ایجاد شد',
+`message` 	= '<p>{contact_firstname} {contact_lastname} گرامی</p><p>یک پروژه با مشخصات زیر ایجاد شد :<br /><br /><strong>عنوان :</strong> {project_name}<br /><strong>تاریخ شروع پروژه :</strong> {project_start_date}</p><p>بررسی و نمایش اطلاعات بیشتر : <a href=\"{project_link}\">{project_name}</a></p><p>ما مشتاقانه منتظر شنیدن دیدگاه و نظرات شما هستیم.<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'assigned-to-project' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'پروژه تکمیل شد',
+`message` 	= '<p>{contact_firstname} {contact_lastname} گرامی</p><p>وضعیت پروژه {project_name} با توجه به انجام شدن پروژه به تکمیل شده تغییر یافت.<br /><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{project_link}\">{project_name}</a></p><p>در صورت نیاز با ما در ارتباط باشید.<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'project-finished-to-customer' AND `language` = 'persian' LIMIT 1;");
 /* project */
 
 
 /* staff */
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'دسترسی شما به سامانه ایجاد شد',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br />دسترسی شما به سامانه مدیریت کاربران با مشخصات زیر ایجاد شد.<br /><br />به منظور ورود به پنل مدیری از اطلاعات زیر استفاده کنید :<br /><br /><strong>آدرس ایمیل / نام کاربری :</strong> {staff_email}<br /><strong>کلمه عبور :</strong> {password}<br /><br />به منظور ورود به پنل مدیریت <a href=\"{admin_url}\">اینجا کلیک کنید</a>.<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'new-staff-created' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'بازیابی کلمه عبور',
+`message` 	= '<p><strong>بازیابی کلمه عبور</strong></p><p>کلمه عبور خود را فراموش کرده اید ؟<br />به منظور بازیابی کلمه عبور و ایجاد کلمه عبور جدید <a href=\"{reset_password_url}\">اینجا کلیک کنید</a>.<br /><br /><br />در صورتی که شما درخواست بازیابی کلمه عبور نداده اید این ایمیل را نادیده بگیرید.<br /><br />{email_signature}</p>'
+WHERE `slug` = 'staff-forgot-password' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'کلمه عبور شما تغییر یافت',
+`message` 	= '<p>مدیر گرامی</p><p>کلمه عبور اکانت شما با موفقیت تغییر یافت.<br /><br />آدرس ایمیل شما جهت ورود به سیستم : {staff_email}<br /><br /><br />{email_signature}</p>'
+WHERE `slug` = 'staff-password-reseted' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'کد تایید ورود به سیستم',
+`message` 	= '<p>{staff_firstname} گرامی</p><p style=\"text-align: right;\">ورود به اکانت شما به صورت تایید دو مرحله ای می باشد.</p><p style=\"text-align: right;\"><br />کد تایید ورود به پنل مدیریت :</p><p style=\"text-align: left;\"><span style=\"font-size: 18pt;\"><strong>{two_factor_auth_code}<br /></strong></span></p><p style=\"text-align: right;\"><span style=\"font-size: 18pt;\"><span>{email_signature}</span><strong><br /><br /><br /><br /></strong></span></p>'
+WHERE `slug` = 'two-factor-authentication' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'شما یک یادآوری جدید دارید',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br /><strong>شما یک یادآوری جدید دارید : {staff_reminder_relation_name}<br /><br />توضیحات بیشتر :</strong><br />{staff_reminder_description}<br /><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{staff_reminder_relation_link}\">{staff_reminder_relation_name}</a><br /><br />با تشکر<br /><br /></p>'
+WHERE `slug` = 'reminder-email-staff' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'یادآوری رویداد - {event_title}',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br />صرفاً جهت یادآوری :</p><p>رویداد <a href=\"{event_link}\">{event_title}</a> برای تاریخ {event_start_date} تنظیم شده است. <br /><br />با تشکر</p>'
+WHERE `slug` = 'event-notification-to-staff' AND `language` = 'persian' LIMIT 1;");
 /* staff */
 
 
 /* lead */
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'یک مشتری احتمالی به شما تخصیص داده شد',
+`message` 	= '<p>{lead_assigned} گرامی<br /><br />یک مشتری احتمالی به شما تخصیص داده شد.<br /><br /><strong>نام :</strong> {lead_name}<br /><strong>آدرس ایمیل :</strong> {lead_email}<br /><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{lead_link}\">{lead_name}</a><br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'new-lead-assigned' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`fromname` 	= '{companyname}',
+`subject` 	= 'درخواست شما را دریافت کردیم',
+`message` 	= '<p>{lead_name} گرامی</p><p><br />درخواست شما را دریافت کردیم و در اصرع وقت با شما تماس خواهیم گرفت.<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'new-web-to-lead-form-submitted' AND `language` = 'persian' LIMIT 1;");
 /* lead */
 
 
 /* estimate-request */
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'درخواست پیش فاکتور جدید',
+`message` 	= '<p><span> مدیر گرامی, </span><br /><br />درخواست پیش فاکتور توسط آدرس ایمیل / شخص {estimate_request_email} از طریق فرم {estimate_request_form_name} ثبت شد.</p><p><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{estimate_request_link}\">{estimate_request_link}</a><br /><br />============ اطلاعات دریافت شده از طریق فرم ============<br /><br />{estimate_request_submitted_data}<br /><br />با تشکر,<br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'estimate-request-submitted-to-staff' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'تخصیص درخواست پیش فاکتور به شما',
+`message` 	= '<p><span>{estimate_request_assigned} گرامی, </span><br /><br />درخواست پیش فاکتور {estimate_request_id} به شما تخصیص داده شده است.<br /><br />بررسی و نمایش اطلاعات بیشتر : <a href=\"{estimate_request_link}\">{estimate_request_link}</a><br /><br />با تشکر,<br /><span>{email_signature}</span></p>'
+WHERE `slug` = 'estimate-request-assigned' AND `language` = 'persian' LIMIT 1;");
+
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`fromname` 	= '{companyname}',
+`subject` 	= 'درخواست پیش فاکتور ثبت شد',
+`message` 	= '<p>سلام و احترام,</p><p>درخواست پیش فاکتور شما دریافت و ثبت شد.<br /><br />در اولین فرصت درخواست شما را بررسی و در صورت نیاز با شما تماس خواهیم گرفت.<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'estimate-request-received-to-user' AND `language` = 'persian' LIMIT 1;");
 /* estimate-request */
 
 
-/* reminder */
-/* reminder */
+/* notifications */
+$CI->db->query("UPDATE `". db_prefix() ."emailtemplates` SET
+`active` 	= 1,
+`fromname` 	= '{companyname}',
+`subject` 	= 'اقدام مورد نیاز : وظایف تکمیل شده بدون صورت حساب',
+`message` 	= '<p>{staff_firstname} گرامی<br /><br />وظایف زیر به عنوان تکمیل شده علامت گذاری شده است اما صورت حسابی برای آنها دریافت نشده است:<br /><br />{unbilled_tasks_list}<br /><br />با تشکر,<br />{email_signature}</p>'
+WHERE `slug` = 'non-billed-tasks-reminder' AND `language` = 'persian' LIMIT 1;");
+/* notifications */

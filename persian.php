@@ -7,7 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	Author: میلاد مالدار
 	Author URI: https://miladworkshop.ir
 	Version: 1.0.2
-	Requires at least: 2.4.*
+	Requires at least: 2.9.*
 */
 
 $CI = &get_instance();

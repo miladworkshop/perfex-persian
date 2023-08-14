@@ -38,6 +38,11 @@ class Persian extends AdminController
         persian_translate_email();
     }
 
+    public function email_theme()
+    {		
+        persian_email_theme();
+    }
+
     public function sms()
     {		
         persian_translate_sms();

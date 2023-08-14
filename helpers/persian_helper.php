@@ -145,6 +145,11 @@ function persian_translate_email()
 	require_once("persian_email.php");
 }
 
+function persian_email_theme()
+{
+	require_once("persian_email_theme.php");
+}
+
 function persian_translate_sms()
 {
 	update_option("sms_trigger_invoice_overdue_notice", "{contact_firstname} {contact_lastname} گرامی\n\nمهلت پرداخت {invoice_number} به اتمام رسیده است.");
