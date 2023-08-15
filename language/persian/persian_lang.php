@@ -1,6 +1,52 @@
 <?php
 # Version 1.0.0
-#
+
+//-- Persian Module
+$lang['persian_sms_tag']								= "<a href='". admin_url('persian') ."'><span class='badge bg-success persian-badge'>افزوده شده توسط ماژول توسعه پارسی</span></a>";
+$lang['persian_sms_label_project_created'] 				= "{$lang['persian_sms_tag']} ایجاد پروژه جدید <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_project_created'] 				= "هنگام ایجاد پروژه جدید این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_invoice_created'] 				= "{$lang['persian_sms_tag']} ایجاد فاکتور جدید <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_invoice_created'] 				= "هنگام ایجاد فاکتور جدید این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_proposal_created'] 			= "{$lang['persian_sms_tag']} ایجاد پروپوزال جدید <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_proposal_created'] 				= "هنگام ایجاد پروپوزال جدید این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_estimate_created'] 			= "{$lang['persian_sms_tag']} ایجاد پیش فاکتور جدید <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_estimate_created'] 				= "هنگام ایجاد پیش فاکتور جدید این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_contract_created'] 			= "{$lang['persian_sms_tag']} ایجاد قرارداد جدید <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_contract_created'] 				= "هنگام ایجاد قرارداد جدید این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_ticket_created'] 				= "{$lang['persian_sms_tag']} ایجاد تیکت جدید <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_ticket_created'] 				= "هنگام ایجاد تیکت جدید این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_credit_note_created'] 			= "{$lang['persian_sms_tag']} ایجاد یادداشت اعتباری جدید <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_credit_note_created'] 			= "هنگام ایجاد یادداشت اعتباری جدید این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_lead_created'] 				= "{$lang['persian_sms_tag']} ایجاد مشتری احتمالی / بالقوه <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_lead_created'] 					= "هنگام ثبت مشتری احتمالی / بالقوه این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_project_status_changed'] 		= "{$lang['persian_sms_tag']} تغییر وضعیت پروژه <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_project_status_changed'] 		= "هنگام تغییر وضعیت پروژه این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_invoice_status_changed'] 		= "{$lang['persian_sms_tag']} تغییر وضعیت فاکتور <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_invoice_status_changed'] 		= "هنگام تغییر وضعیت فاکتور این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_lead_status_changed'] 			= "{$lang['persian_sms_tag']} هنگام تغییر وضعیت مشتری احتمالی / بالقوه <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_lead_status_changed'] 			= "هنگام تغییر وضعیت مشتری احتمالی / بالقوه این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_ticket_status_changed'] 		= "{$lang['persian_sms_tag']} تغییر وضعیت تیکت <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_ticket_status_changed'] 		= "هنگام تغییر وضعیت تیکت این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_proposal_accepted'] 			= "{$lang['persian_sms_tag']} تایید پروپوزال <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_proposal_accepted'] 			= "هنگام تایید پروپوزال این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_proposal_declined'] 			= "{$lang['persian_sms_tag']} رد / عدم تایید پروپوزال <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_proposal_declined'] 			= "هنگام رد یا عدم تایید پروپوزال این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_proposal_accepted_to_staff'] 	= "{$lang['persian_sms_tag']} تایید پروپوزال <small>( ارسال به مدیر / کارمند )</small>";
+$lang['persian_sms_info_proposal_accepted_to_staff'] 	= "هنگام تایید پروپوزال این پیام به مدیر / کارمند ارسال خواهد شد.";
+$lang['persian_sms_label_proposal_declined_to_staff'] 	= "{$lang['persian_sms_tag']} رد / عدم تایید پروپوزال <small>( ارسال به مدیر / کارمند )</small>";
+$lang['persian_sms_info_proposal_declined_to_staff'] 	= "هنگام رد یا عدم تایید پروپوزال این پیام برای مدیر / کارمند ارسال خواهد شد.";
+$lang['persian_sms_label_estimate_accepted'] 			= "{$lang['persian_sms_tag']} تایید پیش فاکتور <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_estimate_accepted'] 			= "هنگام تایید پیش فاکتور این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_estimate_declined'] 			= "{$lang['persian_sms_tag']} رد / عدم تایید پیش فاکتور <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_estimate_declined'] 			= "هنگام رد یا عدم تایید پیش فاکتور این پیام برای مشتری ارسال خواهد شد.";
+$lang['persian_sms_label_estimate_accepted_to_staff'] 	= "{$lang['persian_sms_tag']} تایید پیش فاکتور <small>( ارسال به مدیر / کارمند )</small>";
+$lang['persian_sms_info_estimate_accepted_to_staff'] 	= "هنگام تایید پیش فاکتور این پیام برای مدیر / کارمند ارسال خواهد شد.";
+$lang['persian_sms_label_estimate_declined_to_staff'] 	= "{$lang['persian_sms_tag']} رد / عدم تایید پیش فاکتور <small>( ارسال به مدیر / کارمند )</small>";
+$lang['persian_sms_info_estimate_declined_to_staff'] 	= "هنگام رد یا عدم تایید پیش فاکتور این پیام به مدیر / کارمند ارسال خواهد شد.";
+$lang['persian_sms_label_contact_created'] 				= "{$lang['persian_sms_tag']} ایجاد مخاطب جدید <small>( ارسال به مشتری )</small>";
+$lang['persian_sms_info_contact_created'] 				= "هنگام ایجاد مخاطب جدید این پیام برای مشتری ارسال خواهد شد.";
+//-- Persian Module
+
 # General
 $lang['id'] 									= 'شناسه';
 $lang['name'] 									= 'نام';

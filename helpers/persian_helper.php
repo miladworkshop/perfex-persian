@@ -164,4 +164,62 @@ function persian_translate_sms()
 	update_option("sms_trigger_contract_expiration_reminder", "{contact_firstname} {contact_lastname} گرامی\n\nقرارداد {contract_id} به زودی منقضی خواهد شد.");
 	update_option("sms_trigger_contract_sign_reminder_to_customer", "{contact_firstname} {contact_lastname} گرامی\n\nلطفاً نسبت به امضاء قرارداد {contract_id} اقدام فرمایید.");
 	update_option("sms_trigger_staff_reminder", "{staff_firstname} {staff_lastname} گرامی\n\nیادآوری\n\n{staff_reminder_description}");
+
+	update_option('sms_trigger_persian_sms_project_created', "{contact_firstname} {contact_lastname} گرامی\n\nپروژه {project_name} ایجاد شد.");
+	update_option('sms_trigger_persian_sms_invoice_created', "{contact_firstname} {contact_lastname} گرامی\n\nفاکتور {invoice_number} به مبلغ {invoice_total} ایجاد شد.");
+	update_option('sms_trigger_persian_sms_proposal_created', "کاربر گرامی\n\nپروپوزال {proposal_subject} ایجاد شد.");
+	update_option('sms_trigger_persian_sms_estimate_created', "{contact_firstname} {contact_lastname} گرامی\n\nپیش فاکتور {estimate_number} به مبلغ {estimate_total} ایجاد شد.");
+	update_option('sms_trigger_persian_sms_contract_created', "{contact_firstname} {contact_lastname} گرامی\n\nقرارداد {contract_subject} ایجاد و در پنل ثبت شد.");
+	update_option('sms_trigger_persian_sms_ticket_created', "کاربر گرامی\n\nتیکت جدید با عنوان {ticket_subject} ایجاد شد.");
+	update_option('sms_trigger_persian_sms_credit_note_created', "{contact_firstname} {contact_lastname} گرامی\n\nیادداشت اعتباری جدیدی با شناسه {credit_note_number}, به مبلغ {credit_note_total} ایجاد شد.");
+	update_option('sms_trigger_persian_sms_lead_created', "{lead_name} گرامی\n\nمشتاقانه آماده همکاری با شما هستیم.");
+	update_option('sms_trigger_persian_sms_project_status_changed', "{contact_firstname} {contact_lastname} گرامی\n\nوضعیت پروژه {project_name} به {project_status} تغییر یافت.");
+	update_option('sms_trigger_persian_sms_invoice_status_changed', "{contact_firstname} {contact_lastname} گرامی\n\nوضعیت فاکتور {invoice_number} به {invoice_status} تغییر یافت.");
+	update_option('sms_trigger_persian_sms_lead_status_changed', "");
+	update_option('sms_trigger_persian_sms_ticket_status_changed', "کاربر گرامی\n\nوضعیت تیکت {ticket_subject} به {ticket_status} تغییر یافت.");
+	update_option('sms_trigger_persian_sms_proposal_accepted', "کاربر گرامی\n\nپروپوزال {proposal_subject} تایید شد.");
+	update_option('sms_trigger_persian_sms_proposal_declined', "کاربر گرامی\n\nپروپوزال {proposal_subject} لغو شد.");
+	update_option('sms_trigger_persian_sms_proposal_accepted_to_staff', "مدیر گرامی\n\nپروپوزال {proposal_subject} تایید شد.");
+	update_option('sms_trigger_persian_sms_proposal_declined_to_staff', "مدیر گرامی\n\nپروپوزال {proposal_subject} لغو شد.");
+	update_option('sms_trigger_persian_sms_estimate_accepted', "{contact_firstname} {contact_lastname} گرامی\n\nپیش فاکتور {estimate_number} تایید شد.");
+	update_option('sms_trigger_persian_sms_estimate_declined', "{contact_firstname} {contact_lastname} گرامی\n\nپیش فاکتور {estimate_number} لغو شد.");
+	update_option('sms_trigger_persian_sms_estimate_accepted_to_staff', "مدیر گرامی\n\nپیش فاکتور {estimate_number} تایید شد.");
+	update_option('sms_trigger_persian_sms_estimate_declined_to_staff', "مدیر گرامی\n\nپیش فاکتور {estimate_number} لغو شد.");
+	update_option('sms_trigger_persian_sms_contact_created', "کاربر گرامی\n\nاطلاعات مخاطب جدید :\n\nشماره موبایل : {contact_phonenumber}\n\nآدرس ایمیل : {contact_email}");
+}
+
+function persian_sms_get_customer_merge_fields($clientid)
+{
+	$merge_fields = array();
+	$phonenumber 	= '';
+	$CI 			= &get_instance();
+	$client 		= $CI->clients_model->get($clientid);
+
+	if (!$client)
+	{
+		return $merge_fields;
+	}
+
+	$contact = $CI->clients_model->get_contact(get_primary_contact_user_id($clientid));
+
+	if ($contact)
+	{
+		if(!is_null($contact->phonenumber) && $contact->phonenumber!=='')
+			$phonenumber = $contact->phonenumber;
+		elseif(get_option('persian_sms_send_to_alt_client'))
+			$phonenumber = $client->phonenumber;	
+		$merge_fields['{contact_firstname}'] = $contact->firstname;
+		$merge_fields['{contact_lastname}'] = $contact->lastname;
+	} elseif(get_option('persian_sms_send_to_alt_client'))
+	{
+		$phonenumber = $client->phonenumber;
+		$merge_fields['{contact_firstname}'] = $client->company;
+		$merge_fields['{contact_lastname}'] = '';
+	}
+
+	$merge_fields['{client_company}'] 	= $client->company;
+	$merge_fields['{client_id}'] 		= $clientid;
+	$merge_fields['phone_number'] 		= $phonenumber;
+
+	return $merge_fields;
 }

@@ -645,3 +645,9 @@ ul.tagit li.tagit-choice .tagit-close{
 .persian-float-left {
 	float:left;
 }
+
+.persian-badge {
+	border-radius:4px;
+	margin-bottom:8px;
+	display:inline-block;
+}
