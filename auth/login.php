@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $rest 					= false;
 $rest_data 				= array();
 $rest_data['status'] 	= 'error';
+$rest_data['method'] 	= 'register';
 $rest_data['message'] 	= 'وضعیت نامشخص';
 
 $auth = $data->input->post("auth");
@@ -51,6 +52,7 @@ if (isset($auth) && $auth != false)
 					if ($rest == true)
 					{
 						$rest_data['status'] 	= 'success';
+						$rest_data['method'] 	= 'login';
 						$rest_data['message'] 	= base_url("authentication/login/otp/{$otp_key}");
 					} else {
 						redirect(base_url("authentication/login/otp/{$otp_key}"));

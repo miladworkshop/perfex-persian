@@ -651,3 +651,46 @@ ul.tagit li.tagit-choice .tagit-close{
 	margin-bottom:8px;
 	display:inline-block;
 }
+
+/* Product Module */
+.product-row ::placeholder {
+	direction:rtl;
+	text-align:right;
+}
+
+.product-row .title {
+	direction:rtl;
+	text-align:right;
+	color:#000000;
+	font-weight:bold;
+}
+
+.product-row .description center {
+	direction:rtl;
+	text-align:right;
+	text-align:justify;
+	font-size:12px;
+	color:#757575;
+	line-height:180%;
+}
+
+.product-row .add_cart {
+	background:#22C55E;
+	border-color: #22C55E;
+}
+
+.product-row .add_cart {
+	background:#22C55E;
+	border-color: #22C55E;
+}
+
+.product-row .add_cart:active {
+	background:#22C55E;
+	border-color: #22C55E;
+}
+
+.product-row .products-pricing {
+	direction:rtl;
+	text-align:left;
+}
+/* Product Module */
